@@ -59,4 +59,4 @@ msp <- lm(MSP ~  Percent.Poverty + TSFPP + RTS + PSTA.17A + PSTA.17B + PSTA.17C 
           + SPCT , df)
 
 #showcase the results with tab_model (library(sjPlot))
-#tab_model(msp)
+#tab_model(mscca)
