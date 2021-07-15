@@ -1,0 +1,820 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<style>
+html, body { background-color: white; }
+table { border-collapse:collapse; border:none; }
+caption { font-weight: bold; text-align:left; }
+td {  }
+.thead { border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; }
+.tdata { padding:0.2cm; text-align:left; vertical-align:top; }
+.arc { background-color:#f2f2f2; }
+.summary { padding-top:0.1cm; padding-bottom:0.1cm; }
+.summarydata { text-align:left; }
+.fixedparts { font-weight:bold; text-align:left; }
+.randomparts { font-weight:bold; text-align:left; padding-top:.8em; }
+.zeroparts { font-weight:bold; text-align:left; padding-top:.8em; }
+.simplexparts { font-weight:bold; text-align:left; padding-top:.8em; }
+.lasttablerow { border-bottom: double; }
+.firsttablerow {  }
+.firstsumrow { border-top:1px solid; }
+.labelcellborder { border-bottom:1px solid; }
+.depvarhead { text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal; }
+.depvarheadnodv { border-top: double; text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal; }
+.leftalign { text-align:left; }
+.centeralign { text-align:center; }
+.firsttablecol { text-align:left; }
+.footnote { font-style:italic; border-top:double black; text-align:right; }
+.subtitle { font-weight: normal; }
+.modelcolumn1 {  }
+.modelcolumn2 {  }
+.modelcolumn3 {  }
+.modelcolumn4 {  }
+.modelcolumn5 {  }
+.modelcolumn6 {  }
+.modelcolumn7 {  }
+.col1 {  }
+.col2 {  }
+.col3 {  }
+.col4 {  }
+.col5 {  }
+.col6 {  }
+</style>
+</head>
+<body>
+<table>
+  <tr>
+    <th class="thead firsttablerow firsttablecol col1">&nbsp;</th>
+    <th colspan="3" class="thead firsttablerow">Math Proficiency</th>
+    <th colspan="3" class="thead firsttablerow"># of Comp Sci Courses</th>
+    <th colspan="3" class="thead firsttablerow">Teacher Student Ratio</th>
+    <th colspan="3" class="thead firsttablerow">Mbps Bandwidth</th>
+    <th colspan="3" class="thead firsttablerow">PD17a</th>
+    <th colspan="3" class="thead firsttablerow">PD17b</th>
+    <th colspan="3" class="thead firsttablerow">PD17c</th>
+    <th colspan="3" class="thead firsttablerow">Scaled Mean Score</th>
+    <th colspan="3" class="thead firsttablerow">Poverty Percent</th>
+    <th colspan="3" class="thead firsttablerow">FRPL</th>
+    <th colspan="3" class="thead firsttablerow">TSFPP</th>
+    <th colspan="3" class="thead firsttablerow">Average Teacher Salary</th>
+    <th colspan="3" class="thead firsttablerow">PLVL34</th>
+    <th colspan="3" class="thead firsttablerow">Stem Activities Count</th>
+  </tr>
+  <tr>
+    <td class="depvarhead firsttablerow firsttablecol col1">Predictors</td>
+    <td class="depvarhead firsttablerow col2">Estimates</td>
+    <td class="depvarhead firsttablerow col3">CI</td>
+    <td class="depvarhead firsttablerow col4">p</td>
+    <td class="depvarhead firsttablerow col5">Estimates</td>
+    <td class="depvarhead firsttablerow col6">CI</td>
+    <td class="depvarhead firsttablerow col7">p</td>
+    <td class="depvarhead firsttablerow col8">Estimates</td>
+    <td class="depvarhead firsttablerow col9">CI</td>
+    <td class="depvarhead firsttablerow col10">p</td>
+    <td class="depvarhead firsttablerow col11">Estimates</td>
+    <td class="depvarhead firsttablerow col12">CI</td>
+    <td class="depvarhead firsttablerow col13">p</td>
+    <td class="depvarhead firsttablerow col14">Estimates</td>
+    <td class="depvarhead firsttablerow col15">CI</td>
+    <td class="depvarhead firsttablerow col16">p</td>
+    <td class="depvarhead firsttablerow col17">Estimates</td>
+    <td class="depvarhead firsttablerow col18">CI</td>
+    <td class="depvarhead firsttablerow col19">p</td>
+    <td class="depvarhead firsttablerow col20">Estimates</td>
+    <td class="depvarhead firsttablerow col21">CI</td>
+    <td class="depvarhead firsttablerow col22">p</td>
+    <td class="depvarhead firsttablerow col23">Estimates</td>
+    <td class="depvarhead firsttablerow col24">CI</td>
+    <td class="depvarhead firsttablerow col25">p</td>
+    <td class="depvarhead firsttablerow col26">Estimates</td>
+    <td class="depvarhead firsttablerow col27">CI</td>
+    <td class="depvarhead firsttablerow col28">p</td>
+    <td class="depvarhead firsttablerow col29">Estimates</td>
+    <td class="depvarhead firsttablerow col30">CI</td>
+    <td class="depvarhead firsttablerow col31">p</td>
+    <td class="depvarhead firsttablerow col32">Estimates</td>
+    <td class="depvarhead firsttablerow col33">CI</td>
+    <td class="depvarhead firsttablerow col34">p</td>
+    <td class="depvarhead firsttablerow col35">Estimates</td>
+    <td class="depvarhead firsttablerow col36">CI</td>
+    <td class="depvarhead firsttablerow col37">p</td>
+    <td class="depvarhead firsttablerow col38">Estimates</td>
+    <td class="depvarhead firsttablerow col39">CI</td>
+    <td class="depvarhead firsttablerow col40">p</td>
+    <td class="depvarhead firsttablerow col41">Estimates</td>
+    <td class="depvarhead firsttablerow col42">CI</td>
+    <td class="depvarhead firsttablerow col43">p</td>
+  </tr>
+  <tr>
+    <td class="tdata firsttablecol col1">(Intercept)</td>
+    <td class="tdata centeralign modelcolumn1 col2">42.61</td>
+    <td class="tdata centeralign modelcolumn1 col3">4.46&nbsp;&ndash;&nbsp;80.77</td>
+    <td class="tdata centeralign modelcolumn1 col4"><strong>0.029</strong></td>
+    <td class="tdata centeralign modelcolumn2 col5">&#45;0.84</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;11.83&nbsp;&ndash;&nbsp;10.15</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.878</td>
+    <td class="tdata centeralign modelcolumn3 col8">0.01</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.02&nbsp;&ndash;&nbsp;0.04</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.522</td>
+    <td class="tdata centeralign modelcolumn4 col11">225.26</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;87.86&nbsp;&ndash;&nbsp;538.38</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.155</td>
+    <td class="tdata centeralign modelcolumn5 col14">1.64</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;32.20&nbsp;&ndash;&nbsp;35.47</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.923</td>
+    <td class="tdata centeralign modelcolumn6 col17">&#45;13.33</td>
+    <td class="tdata centeralign modelcolumn6 col18">&#45;41.70&nbsp;&ndash;&nbsp;15.04</td>
+    <td class="tdata centeralign modelcolumn6 col19">0.350</td>
+    <td class="tdata centeralign modelcolumn7 col20">13.38</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;14.07&nbsp;&ndash;&nbsp;40.84</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.332</td>
+    <td class="tdata centeralign modelcolumn8 col23">&#45;417.66</td>
+    <td class="tdata centeralign modelcolumn8 col24">&#45;893.17&nbsp;&ndash;&nbsp;57.86</td>
+    <td class="tdata centeralign modelcolumn8 col25">0.084</td>
+    <td class="tdata centeralign modelcolumn9 col26">38.93</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;28.25&nbsp;&ndash;&nbsp;106.10</td>
+    <td class="tdata centeralign modelcolumn9 col28">0.250</td>
+    <td class="tdata centeralign modelcolumn0 col29">832.95</td>
+    <td class="tdata centeralign modelcolumn0 col30">&#45;89.98&nbsp;&ndash;&nbsp;1755.87</td>
+    <td class="tdata centeralign modelcolumn0 col31">0.076</td>
+    <td class="tdata centeralign modelcolumn1 col32">30491.78</td>
+    <td class="tdata centeralign modelcolumn1 col33">21169.76&nbsp;&ndash;&nbsp;39813.80</td>
+    <td class="tdata centeralign modelcolumn1 col34"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn2 col35">100113.08</td>
+    <td class="tdata centeralign modelcolumn2 col36">76239.92&nbsp;&ndash;&nbsp;123986.24</td>
+    <td class="tdata centeralign modelcolumn2 col37"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn3 col38">&#45;0.10</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;0.53&nbsp;&ndash;&nbsp;0.32</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.628</td>
+    <td class="tdata centeralign modelcolumn4 col41">0.30</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;5.68&nbsp;&ndash;&nbsp;6.29</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.920</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1"># of Comp Sci Courses</td>
+    <td class="tdata centeralign modelcolumn1 col2">&#45;0.06</td>
+    <td class="tdata centeralign modelcolumn1 col3">&#45;1.08&nbsp;&ndash;&nbsp;0.97</td>
+    <td class="tdata centeralign modelcolumn1 col4">0.912</td>
+    <td class="tdata centeralign modelcolumn2 col5"></td>
+    <td class="tdata centeralign modelcolumn2 col6"></td>
+    <td class="tdata centeralign modelcolumn2 col7"></td>
+    <td class="tdata centeralign modelcolumn3 col8">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.00&nbsp;&ndash;&nbsp;-0.00</td>
+    <td class="tdata centeralign modelcolumn3 col10"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn4 col11">&#45;0.05</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;8.22&nbsp;&ndash;&nbsp;8.12</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.990</td>
+    <td class="tdata centeralign modelcolumn5 col14">&#45;0.10</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;0.96&nbsp;&ndash;&nbsp;0.77</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.825</td>
+    <td class="tdata centeralign modelcolumn6 col17">&#45;0.15</td>
+    <td class="tdata centeralign modelcolumn6 col18">&#45;0.89&nbsp;&ndash;&nbsp;0.58</td>
+    <td class="tdata centeralign modelcolumn6 col19">0.672</td>
+    <td class="tdata centeralign modelcolumn7 col20">0.14</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;0.57&nbsp;&ndash;&nbsp;0.85</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.693</td>
+    <td class="tdata centeralign modelcolumn8 col23">&#45;9.44</td>
+    <td class="tdata centeralign modelcolumn8 col24">&#45;21.68&nbsp;&ndash;&nbsp;2.80</td>
+    <td class="tdata centeralign modelcolumn8 col25">0.128</td>
+    <td class="tdata centeralign modelcolumn9 col26">0.21</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;1.53&nbsp;&ndash;&nbsp;1.95</td>
+    <td class="tdata centeralign modelcolumn9 col28">0.809</td>
+    <td class="tdata centeralign modelcolumn0 col29">12.36</td>
+    <td class="tdata centeralign modelcolumn0 col30">&#45;11.73&nbsp;&ndash;&nbsp;36.46</td>
+    <td class="tdata centeralign modelcolumn0 col31">0.308</td>
+    <td class="tdata centeralign modelcolumn1 col32">201.79</td>
+    <td class="tdata centeralign modelcolumn1 col33">&#45;116.99&nbsp;&ndash;&nbsp;520.57</td>
+    <td class="tdata centeralign modelcolumn1 col34">0.210</td>
+    <td class="tdata centeralign modelcolumn2 col35">179.89</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;762.34&nbsp;&ndash;&nbsp;1122.11</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.703</td>
+    <td class="tdata centeralign modelcolumn3 col38">0.00</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;0.01&nbsp;&ndash;&nbsp;0.02</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.369</td>
+    <td class="tdata centeralign modelcolumn4 col41">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;0.16&nbsp;&ndash;&nbsp;0.15</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.953</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">Teacher Student Ratio</td>
+    <td class="tdata centeralign modelcolumn1 col2">&#45;95.92</td>
+    <td class="tdata centeralign modelcolumn1 col3">&#45;432.86&nbsp;&ndash;&nbsp;241.01</td>
+    <td class="tdata centeralign modelcolumn1 col4">0.570</td>
+    <td class="tdata centeralign modelcolumn2 col5">&#45;169.12</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;248.96&nbsp;&ndash;&nbsp;-89.28</td>
+    <td class="tdata centeralign modelcolumn2 col7"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn3 col8"></td>
+    <td class="tdata centeralign modelcolumn3 col9"></td>
+    <td class="tdata centeralign modelcolumn3 col10"></td>
+    <td class="tdata centeralign modelcolumn4 col11">1652.22</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;1007.43&nbsp;&ndash;&nbsp;4311.87</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.218</td>
+    <td class="tdata centeralign modelcolumn5 col14">&#45;136.71</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;420.10&nbsp;&ndash;&nbsp;146.67</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.337</td>
+    <td class="tdata centeralign modelcolumn6 col17">103.00</td>
+    <td class="tdata centeralign modelcolumn6 col18">&#45;137.09&nbsp;&ndash;&nbsp;343.08</td>
+    <td class="tdata centeralign modelcolumn6 col19">0.393</td>
+    <td class="tdata centeralign modelcolumn7 col20">&#45;10.04</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;244.25&nbsp;&ndash;&nbsp;224.16</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.932</td>
+    <td class="tdata centeralign modelcolumn8 col23">1342.73</td>
+    <td class="tdata centeralign modelcolumn8 col24">&#45;2779.55&nbsp;&ndash;&nbsp;5465.00</td>
+    <td class="tdata centeralign modelcolumn8 col25">0.516</td>
+    <td class="tdata centeralign modelcolumn9 col26">553.65</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;0.09&nbsp;&ndash;&nbsp;1107.38</td>
+    <td class="tdata centeralign modelcolumn9 col28">0.050</td>
+    <td class="tdata centeralign modelcolumn0 col29">&#45;4063.91</td>
+    <td class="tdata centeralign modelcolumn0 col30">&#45;12029.67&nbsp;&ndash;&nbsp;3901.85</td>
+    <td class="tdata centeralign modelcolumn0 col31">0.311</td>
+    <td class="tdata centeralign modelcolumn1 col32">2119.43</td>
+    <td class="tdata centeralign modelcolumn1 col33">&#45;104908.86&nbsp;&ndash;&nbsp;109147.72</td>
+    <td class="tdata centeralign modelcolumn1 col34">0.968</td>
+    <td class="tdata centeralign modelcolumn2 col35">&#45;56693.65</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;368191.63&nbsp;&ndash;&nbsp;254804.33</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.716</td>
+    <td class="tdata centeralign modelcolumn3 col38">2.35</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;1.18&nbsp;&ndash;&nbsp;5.89</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.187</td>
+    <td class="tdata centeralign modelcolumn4 col41">&#45;11.62</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;62.11&nbsp;&ndash;&nbsp;38.87</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.646</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">Mbps Bandwidth</td>
+    <td class="tdata centeralign modelcolumn1 col2">&#45;0.01</td>
+    <td class="tdata centeralign modelcolumn1 col3">&#45;0.05&nbsp;&ndash;&nbsp;0.02</td>
+    <td class="tdata centeralign modelcolumn1 col4">0.426</td>
+    <td class="tdata centeralign modelcolumn2 col5">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;0.01&nbsp;&ndash;&nbsp;0.01</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.990</td>
+    <td class="tdata centeralign modelcolumn3 col8">0.00</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.218</td>
+    <td class="tdata centeralign modelcolumn4 col11"></td>
+    <td class="tdata centeralign modelcolumn4 col12"></td>
+    <td class="tdata centeralign modelcolumn4 col13"></td>
+    <td class="tdata centeralign modelcolumn5 col14">&#45;0.01</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;0.04&nbsp;&ndash;&nbsp;0.02</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.454</td>
+    <td class="tdata centeralign modelcolumn6 col17">0.00</td>
+    <td class="tdata centeralign modelcolumn6 col18">&#45;0.02&nbsp;&ndash;&nbsp;0.03</td>
+    <td class="tdata centeralign modelcolumn6 col19">0.929</td>
+    <td class="tdata centeralign modelcolumn7 col20">0.01</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;0.02&nbsp;&ndash;&nbsp;0.03</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.668</td>
+    <td class="tdata centeralign modelcolumn8 col23">&#45;0.11</td>
+    <td class="tdata centeralign modelcolumn8 col24">&#45;0.54&nbsp;&ndash;&nbsp;0.32</td>
+    <td class="tdata centeralign modelcolumn8 col25">0.602</td>
+    <td class="tdata centeralign modelcolumn9 col26">0.01</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;0.05&nbsp;&ndash;&nbsp;0.07</td>
+    <td class="tdata centeralign modelcolumn9 col28">0.717</td>
+    <td class="tdata centeralign modelcolumn0 col29">&#45;0.03</td>
+    <td class="tdata centeralign modelcolumn0 col30">&#45;0.87&nbsp;&ndash;&nbsp;0.81</td>
+    <td class="tdata centeralign modelcolumn0 col31">0.940</td>
+    <td class="tdata centeralign modelcolumn1 col32">&#45;6.28</td>
+    <td class="tdata centeralign modelcolumn1 col33">&#45;17.28&nbsp;&ndash;&nbsp;4.73</td>
+    <td class="tdata centeralign modelcolumn1 col34">0.258</td>
+    <td class="tdata centeralign modelcolumn2 col35">&#45;10.16</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;42.51&nbsp;&ndash;&nbsp;22.19</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.531</td>
+    <td class="tdata centeralign modelcolumn3 col38">0.00</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.820</td>
+    <td class="tdata centeralign modelcolumn4 col41">0.00</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;0.00&nbsp;&ndash;&nbsp;0.01</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.764</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">PD17a</td>
+    <td class="tdata centeralign modelcolumn1 col2">0.07</td>
+    <td class="tdata centeralign modelcolumn1 col3">&#45;0.26&nbsp;&ndash;&nbsp;0.40</td>
+    <td class="tdata centeralign modelcolumn1 col4">0.669</td>
+    <td class="tdata centeralign modelcolumn2 col5">&#45;0.01</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;0.10&nbsp;&ndash;&nbsp;0.08</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.825</td>
+    <td class="tdata centeralign modelcolumn3 col8">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.337</td>
+    <td class="tdata centeralign modelcolumn4 col11">&#45;0.99</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;3.63&nbsp;&ndash;&nbsp;1.65</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.454</td>
+    <td class="tdata centeralign modelcolumn5 col14"></td>
+    <td class="tdata centeralign modelcolumn5 col15"></td>
+    <td class="tdata centeralign modelcolumn5 col16"></td>
+    <td class="tdata centeralign modelcolumn6 col17">0.39</td>
+    <td class="tdata centeralign modelcolumn6 col18">0.18&nbsp;&ndash;&nbsp;0.60</td>
+    <td class="tdata centeralign modelcolumn6 col19"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn7 col20">0.17</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;0.05&nbsp;&ndash;&nbsp;0.40</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.127</td>
+    <td class="tdata centeralign modelcolumn8 col23">0.48</td>
+    <td class="tdata centeralign modelcolumn8 col24">&#45;3.59&nbsp;&ndash;&nbsp;4.54</td>
+    <td class="tdata centeralign modelcolumn8 col25">0.815</td>
+    <td class="tdata centeralign modelcolumn9 col26">&#45;0.06</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;0.62&nbsp;&ndash;&nbsp;0.51</td>
+    <td class="tdata centeralign modelcolumn9 col28">0.839</td>
+    <td class="tdata centeralign modelcolumn0 col29">1.72</td>
+    <td class="tdata centeralign modelcolumn0 col30">&#45;6.18&nbsp;&ndash;&nbsp;9.62</td>
+    <td class="tdata centeralign modelcolumn0 col31">0.664</td>
+    <td class="tdata centeralign modelcolumn1 col32">24.06</td>
+    <td class="tdata centeralign modelcolumn1 col33">&#45;80.93&nbsp;&ndash;&nbsp;129.05</td>
+    <td class="tdata centeralign modelcolumn1 col34">0.647</td>
+    <td class="tdata centeralign modelcolumn2 col35">&#45;28.06</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;334.57&nbsp;&ndash;&nbsp;278.44</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.855</td>
+    <td class="tdata centeralign modelcolumn3 col38">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.598</td>
+    <td class="tdata centeralign modelcolumn4 col41">&#45;0.01</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;0.06&nbsp;&ndash;&nbsp;0.04</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.594</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">PD17b</td>
+    <td class="tdata centeralign modelcolumn1 col2">0.04</td>
+    <td class="tdata centeralign modelcolumn1 col3">&#45;0.35&nbsp;&ndash;&nbsp;0.44</td>
+    <td class="tdata centeralign modelcolumn1 col4">0.821</td>
+    <td class="tdata centeralign modelcolumn2 col5">&#45;0.02</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;0.13&nbsp;&ndash;&nbsp;0.08</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.672</td>
+    <td class="tdata centeralign modelcolumn3 col8">0.00</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.393</td>
+    <td class="tdata centeralign modelcolumn4 col11">0.14</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;3.00&nbsp;&ndash;&nbsp;3.28</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.929</td>
+    <td class="tdata centeralign modelcolumn5 col14">0.55</td>
+    <td class="tdata centeralign modelcolumn5 col15">0.25&nbsp;&ndash;&nbsp;0.84</td>
+    <td class="tdata centeralign modelcolumn5 col16"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn6 col17"></td>
+    <td class="tdata centeralign modelcolumn6 col18"></td>
+    <td class="tdata centeralign modelcolumn6 col19"></td>
+    <td class="tdata centeralign modelcolumn7 col20">0.63</td>
+    <td class="tdata centeralign modelcolumn7 col21">0.42&nbsp;&ndash;&nbsp;0.83</td>
+    <td class="tdata centeralign modelcolumn7 col22"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn8 col23">&#45;1.36</td>
+    <td class="tdata centeralign modelcolumn8 col24">&#45;6.16&nbsp;&ndash;&nbsp;3.43</td>
+    <td class="tdata centeralign modelcolumn8 col25">0.570</td>
+    <td class="tdata centeralign modelcolumn9 col26">&#45;0.02</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;0.68&nbsp;&ndash;&nbsp;0.65</td>
+    <td class="tdata centeralign modelcolumn9 col28">0.964</td>
+    <td class="tdata centeralign modelcolumn0 col29">6.39</td>
+    <td class="tdata centeralign modelcolumn0 col30">&#45;2.79&nbsp;&ndash;&nbsp;15.57</td>
+    <td class="tdata centeralign modelcolumn0 col31">0.169</td>
+    <td class="tdata centeralign modelcolumn1 col32">62.83</td>
+    <td class="tdata centeralign modelcolumn1 col33">&#45;60.33&nbsp;&ndash;&nbsp;185.99</td>
+    <td class="tdata centeralign modelcolumn1 col34">0.311</td>
+    <td class="tdata centeralign modelcolumn2 col35">46.16</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;316.20&nbsp;&ndash;&nbsp;408.51</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.799</td>
+    <td class="tdata centeralign modelcolumn3 col38">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.883</td>
+    <td class="tdata centeralign modelcolumn4 col41">0.05</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;0.01&nbsp;&ndash;&nbsp;0.10</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.113</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">PD17c</td>
+    <td class="tdata centeralign modelcolumn1 col2">&#45;0.23</td>
+    <td class="tdata centeralign modelcolumn1 col3">&#45;0.63&nbsp;&ndash;&nbsp;0.17</td>
+    <td class="tdata centeralign modelcolumn1 col4">0.257</td>
+    <td class="tdata centeralign modelcolumn2 col5">0.02</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;0.09&nbsp;&ndash;&nbsp;0.13</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.693</td>
+    <td class="tdata centeralign modelcolumn3 col8">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.932</td>
+    <td class="tdata centeralign modelcolumn4 col11">0.70</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;2.54&nbsp;&ndash;&nbsp;3.93</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.668</td>
+    <td class="tdata centeralign modelcolumn5 col14">0.26</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;0.08&nbsp;&ndash;&nbsp;0.59</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.127</td>
+    <td class="tdata centeralign modelcolumn6 col17">0.67</td>
+    <td class="tdata centeralign modelcolumn6 col18">0.45&nbsp;&ndash;&nbsp;0.89</td>
+    <td class="tdata centeralign modelcolumn6 col19"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn7 col20"></td>
+    <td class="tdata centeralign modelcolumn7 col21"></td>
+    <td class="tdata centeralign modelcolumn7 col22"></td>
+    <td class="tdata centeralign modelcolumn8 col23">&#45;0.25</td>
+    <td class="tdata centeralign modelcolumn8 col24">&#45;5.22&nbsp;&ndash;&nbsp;4.72</td>
+    <td class="tdata centeralign modelcolumn8 col25">0.920</td>
+    <td class="tdata centeralign modelcolumn9 col26">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;0.70&nbsp;&ndash;&nbsp;0.69</td>
+    <td class="tdata centeralign modelcolumn9 col28">0.989</td>
+    <td class="tdata centeralign modelcolumn0 col29">&#45;4.94</td>
+    <td class="tdata centeralign modelcolumn0 col30">&#45;14.50&nbsp;&ndash;&nbsp;4.61</td>
+    <td class="tdata centeralign modelcolumn0 col31">0.304</td>
+    <td class="tdata centeralign modelcolumn1 col32">&#45;106.52</td>
+    <td class="tdata centeralign modelcolumn1 col33">&#45;231.44&nbsp;&ndash;&nbsp;18.40</td>
+    <td class="tdata centeralign modelcolumn1 col34">0.093</td>
+    <td class="tdata centeralign modelcolumn2 col35">42.48</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;331.68&nbsp;&ndash;&nbsp;416.64</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.821</td>
+    <td class="tdata centeralign modelcolumn3 col38">0.00</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;0.00&nbsp;&ndash;&nbsp;0.01</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.346</td>
+    <td class="tdata centeralign modelcolumn4 col41">&#45;0.03</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;0.09&nbsp;&ndash;&nbsp;0.03</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.381</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">Scaled Mean Score</td>
+    <td class="tdata centeralign modelcolumn1 col2">&#45;0.01</td>
+    <td class="tdata centeralign modelcolumn1 col3">&#45;0.03&nbsp;&ndash;&nbsp;0.02</td>
+    <td class="tdata centeralign modelcolumn1 col4">0.653</td>
+    <td class="tdata centeralign modelcolumn2 col5">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;0.01&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.128</td>
+    <td class="tdata centeralign modelcolumn3 col8">0.00</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.516</td>
+    <td class="tdata centeralign modelcolumn4 col11">&#45;0.05</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;0.23&nbsp;&ndash;&nbsp;0.14</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.602</td>
+    <td class="tdata centeralign modelcolumn5 col14">0.00</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;0.02&nbsp;&ndash;&nbsp;0.02</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.815</td>
+    <td class="tdata centeralign modelcolumn6 col17">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn6 col18">&#45;0.02&nbsp;&ndash;&nbsp;0.01</td>
+    <td class="tdata centeralign modelcolumn6 col19">0.570</td>
+    <td class="tdata centeralign modelcolumn7 col20">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;0.02&nbsp;&ndash;&nbsp;0.02</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.920</td>
+    <td class="tdata centeralign modelcolumn8 col23"></td>
+    <td class="tdata centeralign modelcolumn8 col24"></td>
+    <td class="tdata centeralign modelcolumn8 col25"></td>
+    <td class="tdata centeralign modelcolumn9 col26">&#45;0.05</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;0.09&nbsp;&ndash;&nbsp;-0.02</td>
+    <td class="tdata centeralign modelcolumn9 col28"><strong>0.005</strong></td>
+    <td class="tdata centeralign modelcolumn0 col29">1.55</td>
+    <td class="tdata centeralign modelcolumn0 col30">1.22&nbsp;&ndash;&nbsp;1.88</td>
+    <td class="tdata centeralign modelcolumn0 col31"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn1 col32">8.12</td>
+    <td class="tdata centeralign modelcolumn1 col33">1.22&nbsp;&ndash;&nbsp;15.02</td>
+    <td class="tdata centeralign modelcolumn1 col34"><strong>0.022</strong></td>
+    <td class="tdata centeralign modelcolumn2 col35">15.52</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;5.21&nbsp;&ndash;&nbsp;36.25</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.139</td>
+    <td class="tdata centeralign modelcolumn3 col38">0.00</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.309</td>
+    <td class="tdata centeralign modelcolumn4 col41">0.00</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;0.00&nbsp;&ndash;&nbsp;0.01</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.070</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">Poverty Percent</td>
+    <td class="tdata centeralign modelcolumn1 col2">&#45;0.08</td>
+    <td class="tdata centeralign modelcolumn1 col3">&#45;0.24&nbsp;&ndash;&nbsp;0.08</td>
+    <td class="tdata centeralign modelcolumn1 col4">0.325</td>
+    <td class="tdata centeralign modelcolumn2 col5">0.01</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;0.04&nbsp;&ndash;&nbsp;0.05</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.809</td>
+    <td class="tdata centeralign modelcolumn3 col8">0.00</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.050</td>
+    <td class="tdata centeralign modelcolumn4 col11">0.24</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;1.08&nbsp;&ndash;&nbsp;1.56</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.717</td>
+    <td class="tdata centeralign modelcolumn5 col14">&#45;0.01</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;0.15&nbsp;&ndash;&nbsp;0.13</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.839</td>
+    <td class="tdata centeralign modelcolumn6 col17">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn6 col18">&#45;0.12&nbsp;&ndash;&nbsp;0.12</td>
+    <td class="tdata centeralign modelcolumn6 col19">0.964</td>
+    <td class="tdata centeralign modelcolumn7 col20">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;0.12&nbsp;&ndash;&nbsp;0.11</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.989</td>
+    <td class="tdata centeralign modelcolumn8 col23">&#45;2.72</td>
+    <td class="tdata centeralign modelcolumn8 col24">&#45;4.59&nbsp;&ndash;&nbsp;-0.85</td>
+    <td class="tdata centeralign modelcolumn8 col25"><strong>0.005</strong></td>
+    <td class="tdata centeralign modelcolumn9 col26"></td>
+    <td class="tdata centeralign modelcolumn9 col27"></td>
+    <td class="tdata centeralign modelcolumn9 col28"></td>
+    <td class="tdata centeralign modelcolumn0 col29">7.96</td>
+    <td class="tdata centeralign modelcolumn0 col30">4.72&nbsp;&ndash;&nbsp;11.19</td>
+    <td class="tdata centeralign modelcolumn0 col31"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn1 col32">37.06</td>
+    <td class="tdata centeralign modelcolumn1 col33">&#45;14.20&nbsp;&ndash;&nbsp;88.32</td>
+    <td class="tdata centeralign modelcolumn1 col34">0.153</td>
+    <td class="tdata centeralign modelcolumn2 col35">&#45;7.25</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;159.67&nbsp;&ndash;&nbsp;145.18</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.924</td>
+    <td class="tdata centeralign modelcolumn3 col38">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.578</td>
+    <td class="tdata centeralign modelcolumn4 col41">0.01</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;0.01&nbsp;&ndash;&nbsp;0.04</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.340</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">FRPL</td>
+    <td class="tdata centeralign modelcolumn1 col2">0.00</td>
+    <td class="tdata centeralign modelcolumn1 col3">&#45;0.01&nbsp;&ndash;&nbsp;0.01</td>
+    <td class="tdata centeralign modelcolumn1 col4">0.984</td>
+    <td class="tdata centeralign modelcolumn2 col5">0.00</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.308</td>
+    <td class="tdata centeralign modelcolumn3 col8">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.311</td>
+    <td class="tdata centeralign modelcolumn4 col11">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;0.10&nbsp;&ndash;&nbsp;0.09</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.940</td>
+    <td class="tdata centeralign modelcolumn5 col14">0.00</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;0.01&nbsp;&ndash;&nbsp;0.01</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.664</td>
+    <td class="tdata centeralign modelcolumn6 col17">0.01</td>
+    <td class="tdata centeralign modelcolumn6 col18">&#45;0.00&nbsp;&ndash;&nbsp;0.01</td>
+    <td class="tdata centeralign modelcolumn6 col19">0.169</td>
+    <td class="tdata centeralign modelcolumn7 col20">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;0.01&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.304</td>
+    <td class="tdata centeralign modelcolumn8 col23">0.41</td>
+    <td class="tdata centeralign modelcolumn8 col24">0.32&nbsp;&ndash;&nbsp;0.50</td>
+    <td class="tdata centeralign modelcolumn8 col25"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn9 col26">0.04</td>
+    <td class="tdata centeralign modelcolumn9 col27">0.02&nbsp;&ndash;&nbsp;0.06</td>
+    <td class="tdata centeralign modelcolumn9 col28"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn0 col29"></td>
+    <td class="tdata centeralign modelcolumn0 col30"></td>
+    <td class="tdata centeralign modelcolumn0 col31"></td>
+    <td class="tdata centeralign modelcolumn1 col32">&#45;6.43</td>
+    <td class="tdata centeralign modelcolumn1 col33">&#45;9.71&nbsp;&ndash;&nbsp;-3.16</td>
+    <td class="tdata centeralign modelcolumn1 col34"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn2 col35">&#45;3.63</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;14.48&nbsp;&ndash;&nbsp;7.21</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.504</td>
+    <td class="tdata centeralign modelcolumn3 col38">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.851</td>
+    <td class="tdata centeralign modelcolumn4 col41">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.201</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">TSFPP</td>
+    <td class="tdata centeralign modelcolumn1 col2">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn1 col3">&#45;0.00&nbsp;&ndash;&nbsp;-0.00</td>
+    <td class="tdata centeralign modelcolumn1 col4"><strong>0.008</strong></td>
+    <td class="tdata centeralign modelcolumn2 col5">0.00</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.210</td>
+    <td class="tdata centeralign modelcolumn3 col8">0.00</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.968</td>
+    <td class="tdata centeralign modelcolumn4 col11">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;0.01&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.258</td>
+    <td class="tdata centeralign modelcolumn5 col14">0.00</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.647</td>
+    <td class="tdata centeralign modelcolumn6 col17">0.00</td>
+    <td class="tdata centeralign modelcolumn6 col18">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn6 col19">0.311</td>
+    <td class="tdata centeralign modelcolumn7 col20">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.093</td>
+    <td class="tdata centeralign modelcolumn8 col23">0.01</td>
+    <td class="tdata centeralign modelcolumn8 col24">0.00&nbsp;&ndash;&nbsp;0.02</td>
+    <td class="tdata centeralign modelcolumn8 col25"><strong>0.022</strong></td>
+    <td class="tdata centeralign modelcolumn9 col26">0.00</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn9 col28">0.153</td>
+    <td class="tdata centeralign modelcolumn0 col29">&#45;0.04</td>
+    <td class="tdata centeralign modelcolumn0 col30">&#45;0.05&nbsp;&ndash;&nbsp;-0.02</td>
+    <td class="tdata centeralign modelcolumn0 col31"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn1 col32"></td>
+    <td class="tdata centeralign modelcolumn1 col33"></td>
+    <td class="tdata centeralign modelcolumn1 col34"></td>
+    <td class="tdata centeralign modelcolumn2 col35">&#45;0.53</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;1.34&nbsp;&ndash;&nbsp;0.27</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.190</td>
+    <td class="tdata centeralign modelcolumn3 col38">0.00</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.369</td>
+    <td class="tdata centeralign modelcolumn4 col41">0.00</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.990</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">Average Teacher Salary</td>
+    <td class="tdata centeralign modelcolumn1 col2">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn1 col3">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn1 col4">0.869</td>
+    <td class="tdata centeralign modelcolumn2 col5">0.00</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.703</td>
+    <td class="tdata centeralign modelcolumn3 col8">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.716</td>
+    <td class="tdata centeralign modelcolumn4 col11">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.531</td>
+    <td class="tdata centeralign modelcolumn5 col14">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.855</td>
+    <td class="tdata centeralign modelcolumn6 col17">0.00</td>
+    <td class="tdata centeralign modelcolumn6 col18">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn6 col19">0.799</td>
+    <td class="tdata centeralign modelcolumn7 col20">0.00</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.821</td>
+    <td class="tdata centeralign modelcolumn8 col23">0.00</td>
+    <td class="tdata centeralign modelcolumn8 col24">&#45;0.00&nbsp;&ndash;&nbsp;0.01</td>
+    <td class="tdata centeralign modelcolumn8 col25">0.139</td>
+    <td class="tdata centeralign modelcolumn9 col26">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn9 col28">0.924</td>
+    <td class="tdata centeralign modelcolumn0 col29">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn0 col30">&#45;0.01&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn0 col31">0.504</td>
+    <td class="tdata centeralign modelcolumn1 col32">&#45;0.06</td>
+    <td class="tdata centeralign modelcolumn1 col33">&#45;0.16&nbsp;&ndash;&nbsp;0.03</td>
+    <td class="tdata centeralign modelcolumn1 col34">0.190</td>
+    <td class="tdata centeralign modelcolumn2 col35"></td>
+    <td class="tdata centeralign modelcolumn2 col36"></td>
+    <td class="tdata centeralign modelcolumn2 col37"></td>
+    <td class="tdata centeralign modelcolumn3 col38">0.00</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.918</td>
+    <td class="tdata centeralign modelcolumn4 col41">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.867</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">PLVL34</td>
+    <td class="tdata centeralign modelcolumn1 col2">83.24</td>
+    <td class="tdata centeralign modelcolumn1 col3">70.95&nbsp;&ndash;&nbsp;95.52</td>
+    <td class="tdata centeralign modelcolumn1 col4"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn2 col5">3.26</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;3.95&nbsp;&ndash;&nbsp;10.46</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.369</td>
+    <td class="tdata centeralign modelcolumn3 col8">0.01</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.01&nbsp;&ndash;&nbsp;0.04</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.187</td>
+    <td class="tdata centeralign modelcolumn4 col11">24.09</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;186.91&nbsp;&ndash;&nbsp;235.09</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.820</td>
+    <td class="tdata centeralign modelcolumn5 col14">&#45;5.90</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;28.20&nbsp;&ndash;&nbsp;16.40</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.598</td>
+    <td class="tdata centeralign modelcolumn6 col17">&#45;1.40</td>
+    <td class="tdata centeralign modelcolumn6 col18">&#45;20.30&nbsp;&ndash;&nbsp;17.51</td>
+    <td class="tdata centeralign modelcolumn6 col19">0.883</td>
+    <td class="tdata centeralign modelcolumn7 col20">8.60</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;9.55&nbsp;&ndash;&nbsp;26.75</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.346</td>
+    <td class="tdata centeralign modelcolumn8 col23">163.83</td>
+    <td class="tdata centeralign modelcolumn8 col24">&#45;156.55&nbsp;&ndash;&nbsp;484.21</td>
+    <td class="tdata centeralign modelcolumn8 col25">0.309</td>
+    <td class="tdata centeralign modelcolumn9 col26">&#45;12.52</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;57.36&nbsp;&ndash;&nbsp;32.32</td>
+    <td class="tdata centeralign modelcolumn9 col28">0.578</td>
+    <td class="tdata centeralign modelcolumn0 col29">&#45;59.22</td>
+    <td class="tdata centeralign modelcolumn0 col30">&#45;688.22&nbsp;&ndash;&nbsp;569.78</td>
+    <td class="tdata centeralign modelcolumn0 col31">0.851</td>
+    <td class="tdata centeralign modelcolumn1 col32">3749.22</td>
+    <td class="tdata centeralign modelcolumn1 col33">&#45;4552.88&nbsp;&ndash;&nbsp;12051.31</td>
+    <td class="tdata centeralign modelcolumn1 col34">0.369</td>
+    <td class="tdata centeralign modelcolumn2 col35">1262.28</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;23123.19&nbsp;&ndash;&nbsp;25647.76</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.918</td>
+    <td class="tdata centeralign modelcolumn3 col38"></td>
+    <td class="tdata centeralign modelcolumn3 col39"></td>
+    <td class="tdata centeralign modelcolumn3 col40"></td>
+    <td class="tdata centeralign modelcolumn4 col41">0.76</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;3.19&nbsp;&ndash;&nbsp;4.71</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.700</td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">Stem Activities Count</td>
+    <td class="tdata centeralign modelcolumn1 col2">&#45;0.05</td>
+    <td class="tdata centeralign modelcolumn1 col3">&#45;1.93&nbsp;&ndash;&nbsp;1.82</td>
+    <td class="tdata centeralign modelcolumn1 col4">0.955</td>
+    <td class="tdata centeralign modelcolumn2 col5">&#45;0.02</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;0.53&nbsp;&ndash;&nbsp;0.50</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.953</td>
+    <td class="tdata centeralign modelcolumn3 col8">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.646</td>
+    <td class="tdata centeralign modelcolumn4 col11">2.25</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;12.73&nbsp;&ndash;&nbsp;17.24</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.764</td>
+    <td class="tdata centeralign modelcolumn5 col14">&#45;0.42</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;2.01&nbsp;&ndash;&nbsp;1.16</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.594</td>
+    <td class="tdata centeralign modelcolumn6 col17">1.05</td>
+    <td class="tdata centeralign modelcolumn6 col18">&#45;0.26&nbsp;&ndash;&nbsp;2.36</td>
+    <td class="tdata centeralign modelcolumn6 col19">0.113</td>
+    <td class="tdata centeralign modelcolumn7 col20">&#45;0.57</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;1.86&nbsp;&ndash;&nbsp;0.72</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.381</td>
+    <td class="tdata centeralign modelcolumn8 col23">20.56</td>
+    <td class="tdata centeralign modelcolumn8 col24">&#45;1.71&nbsp;&ndash;&nbsp;42.82</td>
+    <td class="tdata centeralign modelcolumn8 col25">0.070</td>
+    <td class="tdata centeralign modelcolumn9 col26">1.52</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;1.65&nbsp;&ndash;&nbsp;4.69</td>
+    <td class="tdata centeralign modelcolumn9 col28">0.340</td>
+    <td class="tdata centeralign modelcolumn0 col29">&#45;28.37</td>
+    <td class="tdata centeralign modelcolumn0 col30">&#45;72.37&nbsp;&ndash;&nbsp;15.62</td>
+    <td class="tdata centeralign modelcolumn0 col31">0.201</td>
+    <td class="tdata centeralign modelcolumn1 col32">3.86</td>
+    <td class="tdata centeralign modelcolumn1 col33">&#45;590.80&nbsp;&ndash;&nbsp;598.53</td>
+    <td class="tdata centeralign modelcolumn1 col34">0.990</td>
+    <td class="tdata centeralign modelcolumn2 col35">&#45;145.46</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;1877.94&nbsp;&ndash;&nbsp;1587.01</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.867</td>
+    <td class="tdata centeralign modelcolumn3 col38">0.00</td>
+    <td class="tdata centeralign modelcolumn3 col39">&#45;0.02&nbsp;&ndash;&nbsp;0.02</td>
+    <td class="tdata centeralign modelcolumn3 col40">0.700</td>
+    <td class="tdata centeralign modelcolumn4 col41"></td>
+    <td class="tdata centeralign modelcolumn4 col42"></td>
+    <td class="tdata centeralign modelcolumn4 col43"></td>
+</tr>
+  <tr>
+    <td class="tdata firsttablecol col1">Math Proficiency</td>
+    <td class="tdata centeralign modelcolumn1 col2"></td>
+    <td class="tdata centeralign modelcolumn1 col3"></td>
+    <td class="tdata centeralign modelcolumn1 col4"></td>
+    <td class="tdata centeralign modelcolumn2 col5">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn2 col6">&#45;0.08&nbsp;&ndash;&nbsp;0.07</td>
+    <td class="tdata centeralign modelcolumn2 col7">0.912</td>
+    <td class="tdata centeralign modelcolumn3 col8">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col9">&#45;0.00&nbsp;&ndash;&nbsp;0.00</td>
+    <td class="tdata centeralign modelcolumn3 col10">0.570</td>
+    <td class="tdata centeralign modelcolumn4 col11">&#45;0.89</td>
+    <td class="tdata centeralign modelcolumn4 col12">&#45;3.12&nbsp;&ndash;&nbsp;1.34</td>
+    <td class="tdata centeralign modelcolumn4 col13">0.426</td>
+    <td class="tdata centeralign modelcolumn5 col14">0.05</td>
+    <td class="tdata centeralign modelcolumn5 col15">&#45;0.19&nbsp;&ndash;&nbsp;0.29</td>
+    <td class="tdata centeralign modelcolumn5 col16">0.669</td>
+    <td class="tdata centeralign modelcolumn6 col17">0.02</td>
+    <td class="tdata centeralign modelcolumn6 col18">&#45;0.18&nbsp;&ndash;&nbsp;0.22</td>
+    <td class="tdata centeralign modelcolumn6 col19">0.821</td>
+    <td class="tdata centeralign modelcolumn7 col20">&#45;0.11</td>
+    <td class="tdata centeralign modelcolumn7 col21">&#45;0.30&nbsp;&ndash;&nbsp;0.08</td>
+    <td class="tdata centeralign modelcolumn7 col22">0.257</td>
+    <td class="tdata centeralign modelcolumn8 col23">&#45;0.77</td>
+    <td class="tdata centeralign modelcolumn8 col24">&#45;4.21&nbsp;&ndash;&nbsp;2.66</td>
+    <td class="tdata centeralign modelcolumn8 col25">0.653</td>
+    <td class="tdata centeralign modelcolumn9 col26">&#45;0.23</td>
+    <td class="tdata centeralign modelcolumn9 col27">&#45;0.71&nbsp;&ndash;&nbsp;0.24</td>
+    <td class="tdata centeralign modelcolumn9 col28">0.325</td>
+    <td class="tdata centeralign modelcolumn0 col29">0.07</td>
+    <td class="tdata centeralign modelcolumn0 col30">&#45;6.62&nbsp;&ndash;&nbsp;6.76</td>
+    <td class="tdata centeralign modelcolumn0 col31">0.984</td>
+    <td class="tdata centeralign modelcolumn1 col32">&#45;115.02</td>
+    <td class="tdata centeralign modelcolumn1 col33">&#45;197.96&nbsp;&ndash;&nbsp;-32.09</td>
+    <td class="tdata centeralign modelcolumn1 col34"><strong>0.008</strong></td>
+    <td class="tdata centeralign modelcolumn2 col35">&#45;21.37</td>
+    <td class="tdata centeralign modelcolumn2 col36">&#45;280.70&nbsp;&ndash;&nbsp;237.97</td>
+    <td class="tdata centeralign modelcolumn2 col37">0.869</td>
+    <td class="tdata centeralign modelcolumn3 col38">0.01</td>
+    <td class="tdata centeralign modelcolumn3 col39">0.01&nbsp;&ndash;&nbsp;0.01</td>
+    <td class="tdata centeralign modelcolumn3 col40"><strong>&lt;0.001</strong></td>
+    <td class="tdata centeralign modelcolumn4 col41">&#45;0.00</td>
+    <td class="tdata centeralign modelcolumn4 col42">&#45;0.04&nbsp;&ndash;&nbsp;0.04</td>
+    <td class="tdata centeralign modelcolumn4 col43">0.955</td>
+</tr>
+  <tr>
+    <td class="tdata leftalign summary firstsumrow">Observations</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+    <td class="tdata summary summarydata firstsumrow" colspan="3">65</td>
+  </tr>
+  <tr>
+    <td class="tdata leftalign summary">R<sup>2</sup> / R<sup>2</sup> adjusted</td>
+    <td class="tdata summary summarydata" colspan="3">0.935 / 0.919</td>
+    <td class="tdata summary summarydata" colspan="3">0.374 / 0.214</td>
+    <td class="tdata summary summarydata" colspan="3">0.427 / 0.281</td>
+    <td class="tdata summary summarydata" colspan="3">0.197 / -0.008</td>
+    <td class="tdata summary summarydata" colspan="3">0.716 / 0.644</td>
+    <td class="tdata summary summarydata" colspan="3">0.838 / 0.796</td>
+    <td class="tdata summary summarydata" colspan="3">0.783 / 0.727</td>
+    <td class="tdata summary summarydata" colspan="3">0.764 / 0.704</td>
+    <td class="tdata summary summarydata" colspan="3">0.675 / 0.592</td>
+    <td class="tdata summary summarydata" colspan="3">0.816 / 0.770</td>
+    <td class="tdata summary summarydata" colspan="3">0.659 / 0.572</td>
+    <td class="tdata summary summarydata" colspan="3">0.198 / -0.006</td>
+    <td class="tdata summary summarydata" colspan="3">0.925 / 0.906</td>
+    <td class="tdata summary summarydata" colspan="3">0.153 / -0.063</td>
+  </tr>
+
+</table>
+
+</body></html>
