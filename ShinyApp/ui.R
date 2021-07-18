@@ -26,7 +26,7 @@ fluidPage(
                #creates a slider that select what range of % poverty the user wants to see
                sliderInput("percent_poverty",
                            label = "Percent Poverty Range: ",
-                           min = .0, max = .95, value = .95)
+                           min = .0, max = .95, value = c(.0,.95))
           ),
           #main panel will showcase the output (map)
           mainPanel(

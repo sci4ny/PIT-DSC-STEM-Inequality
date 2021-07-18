@@ -6,7 +6,7 @@ shinyServer( function(input, output){
      #want reactive object because our map/results will change depending on user
      #input
      school_data <- reactive({
-         d <- hs_data %>% filter(Percent.Poverty <= input$percent_poverty)
+         d <- hs_data %>% filter(( input$percent_poverty[1] <= Percent.Poverty & Percent.Poverty <= input$percent_poverty[2]))
          return(d)
      })
 
