@@ -149,3 +149,26 @@ joinednewest.4 <- joinednewest.3 %>%
 
 # saved this edited data
 write_xlsx(joinednewest.4, "/Users/madelineangelides/Downloads/data.6.29.02.xlsx")
+
+
+# At this point, I used excel to change the numbers saved as text to actual numbers, since I couldn't figure out how to do it simply in R 
+
+# The columns that needed to be fixed were: 
+# 'New Ratio STEM Teachers to Students', 'Classroom Teachers w/ 0-3 Years 
+# Experience', 'Classroom Teachers w/ More than 3 Years Experience', 'a.agree', 
+# 'b.agree', 'c.agree', '3rd Mean Scale Score', '3rd % Level 1', 
+#'3rd % Level 2', '3rd % Level 3', '3rd % Level 4', 
+# '3rd % Level 3+4', '4th Mean Scale Score', '4th % Level 1', '4th % Level 2', 
+# '4th % Level 3','4th % Level 4', '4th % Level 3+4', '5th Mean Scale Score', 
+# '5th % Level 1', '5th % Level 2', '5th % Level 3','5th % Level 4', '5th % 
+# Level 3+4', '% Poverty', 'Economic Need Index'
+
+# I just went through (each column individually) and selected the whole column, then went: 'Data > Text to Columns > Finish'
+
+# NOTES: 
+# 1) I changed all "Above 95%" to '.95' in % Poverty and Economic Need Index
+# 2) Had to "find and replace" all the 's' on the state math test columns (as that was the stand in value for NA), I replaced with nothing ('')
+# 3) created new column "Ratio of Full Time Licensed STEM Teachers to Students*" by performing "Full Time certified  STEM teachers"/"Student Enrollment"
+
+# then I saved this edited data as data.6.29.02.edit.7.06.xlsx, and re-imported it:
+data <- read_excel("/Users/madelineangelides/Downloads/data.6.29.02.edit.7.06.xlsx")
