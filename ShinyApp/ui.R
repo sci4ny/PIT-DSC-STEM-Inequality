@@ -1,16 +1,18 @@
 #ui for our app
-
 library(shiny)
-library(tidyverse)
+library(dplyr)
 library(leaflet)
+#run the code tha will load our data
+source("dataLoad.r")
 
 
 shinyUI(
 
+
 fluidPage(
      #Title of Application
      titlePanel("NYC Schools"),
-     #we have a sidebar with the grade range input
+     #we have a sidebar with the grade range input and slider input
      sidebarLayout(
           sidebarPanel(
                h5("Data shown for each school are the most relevant metrics (found via MLR)
@@ -24,7 +26,7 @@ fluidPage(
                #creates a slider that select what range of % poverty the user wants to see
                sliderInput("percent_poverty",
                            label = "Percent Poverty Range: ",
-                           min = 0, max = 95, value = 95)
+                           min = .0, max = .95, value = .95)
           ),
           #main panel will showcase the output (map)
           mainPanel(
