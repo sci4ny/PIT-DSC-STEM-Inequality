@@ -1,3 +1,5 @@
+#ui for our app
+
 library(shiny)
 library(tidyverse)
 library(leaflet)
@@ -14,9 +16,15 @@ fluidPage(
                h5("Data shown for each school are the most relevant metrics (found via MLR)
                   in predicting the outcome of STEM regents or math test results.")
                 ,
+                #this creates an option for the user to select what grade range they want to see
                 selectInput("grade_range",
-                            "Select a grade range:",
-                            choices = c("All","High School", "Middle School", "Elementary School"))
+                            "Select a Grade Range:",
+                            choices = c("All","High School", "Middle School", "Elementary School")
+                            ),
+               #creates a slider that select what range of % poverty the user wants to see
+               sliderInput("percent_poverty",
+                           label = "Percent Poverty Range: ",
+                           min = 0, max = 95, value = 95)
           ),
           #main panel will showcase the output (map)
           mainPanel(
