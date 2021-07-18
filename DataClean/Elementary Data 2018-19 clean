@@ -1,0 +1,151 @@
+library(readxl)
+library(xlsx)
+library(writexl)
+library(dplyr)
+
+#----------COMPUTER SCIENCE REPORT----------#
+
+# loading sheets from excel file '2017-2018_Computer_Science_Report_LL177.xlsx', aka '2017-2018 Computer Science Report LL177' from NYC open data
+# quick note: before loading in the data, i went to the sheets and manually deleted the first few rows (to avoid unnecessary steps here)
+
+CSProg1718CS <- read_excel("/Users/madelineangelides/Downloads/2017-2018_Computer_Science_Report_LL177.xlsx", sheet = "CS Programs")
+STEMTeach1718CS <- read_excel("/Users/madelineangelides/Downloads/2017-2018_Computer_Science_Report_LL177.xlsx", sheet = "STEM Teachers")
+Bandwid1718CS <- read_excel("/Users/madelineangelides/Downloads/2017-2018_Computer_Science_Report_LL177.xlsx", sheet = "School Bandwidth")
+
+# now I joined the three sheets (CS Progs, STEM Teacs, School Bandwidth) 
+
+CSandTeacherJoined <- CSProg1718CS %>% full_join(STEMTeach1718CS, DBN = DBN)
+CS.STEMTeacher.Bandwidth.1718 <- CSandTeacherJoined %>% full_join(Bandw1718CS, DBN = DBN)
+
+
+#----------SCHOOL FUNDING DATA----------#
+
+# Load in school funding data... file '2018-schools-parts-b-e.xlsx'
+Funding <- read_excel("/Users/madelineangelides/Downloads/2018-schools- parts-b-e.xlsx")
+
+# then I filtered it, cut out columns I didn't need
+FilteredFunding <- Funding %>% filter(`School Type`== "Pre-K Only" | `School Type`== "Elementary School" | `School Type`== "K-8 School" | `School Type`== "K-12 School")
+ColFilteredFunding <- FilteredFunding %>% select(`School Year`:`School Type`, `Lowest Grade`, `Highest Grade`, 'K-12 Enrollment', `Pre-K Enrollment`, 'K-12 FRPL Count', 'Classroom Teachers w/ 0-3 Years Experience', 'Classroom Teachers w/ More than 3 Years Experience', 'Classroom Teachers', `Total School Funding per Pupil`)
+
+# then I joined funding to the previous dataset
+joinedall <- CS.STEMTeacher.Bandwidth.1718 %>% full_join(ColFilteredFunding, "School Name" = "School Name")
+Joinednum1num2 <- joinedall %>% filter(`School Type` != "Pre-K Only")
+
+# here I renamed some variables (to help me keep track better)
+num1.CS.STEMTeacher.Bandwidth.1718 <- CS.STEMTeacher.Bandwidth.1718
+num2.Funding <- ColFilteredFunding
+
+
+#----------TEACHER SATISFACTION SURVEY DATA----------#
+
+# load in data from '2017_-_2018_NYC_School_Survey_Teacher_Data.xlsx'
+teachsurvey0 <- read_excel("/Users/madelineangelides/Downloads/2017_-_2018_NYC_School_Survey_Teacher_Data.xlsx", sheet = "Teacher Pos & Neg %")
+
+selectedteachsurvey <- teachsurvey0 %>% select("DBN":"Total Teacher Response Rate", "...174":"...178")
+renamedteachsurvey <- selectedteachsurvey %>% mutate("a.agree" = ...174, "b.agree" = ...176, "c.agree" = ...178)
+cutdownsurvey <- renamedteachsurvey %>% select("DBN":"Total Teacher Response Rate", "a.agree":"c.agree")
+
+# i saved 'cutdownsurvey' to my computer (for safekeeping) and then reloaded it (so this step is repetitive, survey01 is effectively the same as cutdownsurvey)
+write_xlsx(cutdownsurvey, "/Users/madelineangelides/Downloads/cutdownsurvey.xlsx")
+survey01 <- read_excel("/Users/madelineangelides/Downloads/cutdownsurvey.xlsx")
+
+# Here, I tweaked the datasets from before, I removed the 'School Type' column from Funding, and then re-joined the funding data to the CS report data (this is messy/me fixing a prior oversight basically)
+xnum2.Funding <- num2.Funding %>% select(-`School Type`)
+xJoinednum1xnum2 <- num1.CS.STEMTeacher.Bandwidth.1718 %>% full_join(xnum2.Funding, "School Name" = "School Name")
+num3.joinednum1xnum2 <- xJoinednum1xnum2
+
+# then i joined the survey data to the data i had joined from before
+survey02 <- survey01 %>% select(-`School Name`)
+testjoin2 <- num3.joinednum1xnum2 %>% full_join(survey02, "DBN" = "DBN")
+
+# finally I renamed the variables for (personal) clarity
+num4.survey <- survey02
+num5.joinnum1xnum2num4 <- testjoin2
+
+
+#----------STATE MATH TEST DATA----------#
+
+# load in state math test data
+mathtest <- read_excel("/Users/madelineangelides/Downloads/school-math-results-2013-2019-(public).xlsx", sheet = "All")
+
+# select only the columns that I needed, and then filtered so that data only included 3rd, 4th, and 5th grades
+editmathtest <- mathtest %>% select("DBN":"Category", "Mean Scale Score", "% Level 1", "% Level 2", "% Level 3", "% Level 4", "% Level 3+4") %>% filter(Year == 2018) %>% filter(Grade == "3" | Grade == "4" | Grade == "5")
+
+# I had a difficult time with "widening" the data, so I went grade-by-grade, separating them out of the columns they were all together in, and then re-combining the grades in their own columns, side-by-side
+# repeated same process w/ 3rd, 4th, 5th grades
+
+editmathtest.3 <- editmathtest %>% 
+  filter(Grade == "3") %>% 
+  select(DBN, `School Name`, `Mean Scale Score`, '% Level 1', '% Level 2', 
+         '% Level 3', '% Level 4', '% Level 3+4') %>% 
+  rename('3rd Mean Scale Score' = 'Mean Scale Score', '3rd % Level 1' = 
+           '% Level 1', '3rd % Level 2' = '% Level 2', '3rd % Level 3' = 
+           '% Level 3', '3rd % Level 4' = '% Level 4', '3rd % Level 3+4' = 
+           '% Level 3+4')
+           
+editmathtest.4 <- editmathtest %>% 
+  filter(Grade == "4") %>% 
+  select(DBN, `School Name`, `Mean Scale Score`, '% Level 1', '% Level 2', 
+         '% Level 3', '% Level 4', '% Level 3+4') %>% 
+  rename('4th Mean Scale Score' = 'Mean Scale Score', '4th % Level 1' = 
+           '% Level 1', '4th % Level 2' = '% Level 2', '4th % Level 3' = 
+           '% Level 3', '4th % Level 4' = '% Level 4', '4th % Level 3+4' = 
+           '% Level 3+4')
+           
+editmathtest.5 <- editmathtest %>% 
+  filter(Grade == "5") %>% 
+  select(DBN, `School Name`, `Mean Scale Score`, '% Level 1', '% Level 2', 
+         '% Level 3', '% Level 4', '% Level 3+4') %>% 
+  rename('5th Mean Scale Score' = 'Mean Scale Score', '5th % Level 1' = 
+           '% Level 1', '5th % Level 2' = '% Level 2', '5th % Level 3' = 
+           '% Level 3', '5th % Level 4' = '% Level 4', '5th % Level 3+4' = 
+           '% Level 3+4')
+
+# joined the new, "widened" data back together
+mathtest.3.4 <- editmathtest.3 %>% full_join(editmathtest.4, "DBN" = "DBN")
+finalmathtest <- mathtest.3.4 %>% full_join(editmathtest.5, "DBN" = "DBN")
+
+# again, renamed some variables (to help me keep better track)
+num6.statemathtest <- finalmathtest %>% select(-`School Name`)
+joinednewest <- xnum5.joinnum1xnum2num4 %>% full_join(num6.statemathtest, "DBN" = "DBN")
+
+# (saved data for safekeeping)
+write_xlsx(joinednewest, "/Users/madelineangelides/Downloads/datamon28.1.xlsx")
+
+
+#----------LONG / LAT DATA----------##
+
+# load in longitude and latitude data set
+longlat <- read_excel("/Users/madelineangelides/Downloads/2019_DOE_Kindergarten_Admissions_Guide.xlsx", sheet = "2019_DOE_Kindergarten_Admission")
+
+# cut down, only keeping columns that I need
+longlat1 <- longlat %>% select(DBN, Gradespan, Address, Latitude, Longitude)
+
+# join this data to the prior data
+joinednewest.2 <- joinednewest %>% full_join(longlat1, "DBN" = "DBN")
+
+
+#----------POVERTY DATA----------#
+
+# (note that i selected the proper school year (17-18))
+# load in poverty data set
+poverty <- read_excel("/Users/madelineangelides/Downloads/2019-20_Demographic_Snapshot_-_School.xlsx", sheet = "2019-20_Demographic_Snapshot_-_")
+
+# edit down, so it just contains the information I need
+poverty1 <- poverty %>% filter(Year == "2017-18") %>% select(DBN, `Total Enrollment`, `Grade K`:`Grade 5`, '# Poverty', '% Poverty', `Economic Need Index`)
+
+# join this data to the prior data, and save for safekeeping
+joinednewest.3 <- joinednewest.2 %>% full_join(poverty1, "DBN" = "DBN")
+write_xlsx(joinednewest.3, "/Users/madelineangelides/Downloads/data.tues.6.29.xlsx")
+
+
+#----------SOME EXTRA EDITS----------#
+
+# here I got rid of some extraneous data points that didn't include elementary schools, and got rid of some columns that were repetitive or unnecessary
+joinednewest.4 <- joinednewest.3 %>% 
+    filter(!(`Grade K` == 0 & `Grade 1` == 0 & `Grade 2` == 0 & `Grade 3` == 0 & `Grade 4` == 0 & `Grade 5` == 0)) %>% 
+    select(-'School Year', -'School District', -'BEDS Code', -'Lowest Grade', -'Highest Grade', -'Pre-K Enrollment', -'School Level', -'Year', -'Total Enrollment', -'# Poverty') %>% 
+    select(-(`CCAlg Total Tested`:`PSPhysics Percent Scoring CR`), -('Grade K':'Grade 5'))
+
+# saved this edited data
+write_xlsx(joinednewest.4, "/Users/madelineangelides/Downloads/data.6.29.02.xlsx")
