@@ -22,7 +22,7 @@ shinyServer( function(input, output){
                                                      school_name,
                                                      "<br>",
                                                      "<b>% of Students in Poverty: </b>",
-                                                     Percent.Poverty,
+                                                     paste(Percent.Poverty * 100,"%"),
                                                      "<br>",
                                                      "<b> Ratio of STEM teachers to Students: </b>",
                                                      Ratio.of.Full.Time.Licensed.STEM.Teachers.to.Students,
