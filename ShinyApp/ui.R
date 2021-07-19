@@ -23,6 +23,10 @@ fluidPage(
                             "Select a Grade Range:",
                             choices = c("All","High School", "Middle School", "Elementary School")
                             ),
+               #group box that allows user to select boroughs
+               checkboxGroupInput("borough", label = "Borough to Include: ",
+                                  choices = c("BRONX","BROOKLYN","MANHATTAN","QUEENS","STATEN IS"),
+                                  selected = c("BRONX","BROOKLYN","MANHATTAN","QUEENS","STATEN IS")),
                #creates a slider that select what range of % poverty the user wants to see
                sliderInput("percent_poverty",
                            label = "Percent Poverty Range: ",
