@@ -33,9 +33,10 @@ fluidPage(
                sliderInput("ccGeometry",
                            label = "Mean Score for Common Core Geometry Range: ",
                            min = 0, max = 100, value = c(0,100)),
+
                sliderInput("ccLE",
                            label = "Mean Score for Living Environment Range: ",
-                           min = 0, max = 100, value = c(0,100))
+                           min = 0, max = 100, value = c(0,100)),
           ),
           #main panel will showcase the output (map)
           mainPanel(
