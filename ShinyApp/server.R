@@ -6,6 +6,8 @@ shinyServer( function(input, output){
      #want reactive object because our map/results will change depending on user
      #input
      school_data <- reactive({
+         #creates conditional, if current tab is High School, work with High School data
+         if (input$CurrentTab == "High School") {
          d <- hs_data %>% filter(( input$percent_poverty[1] <= Percent.Poverty & Percent.Poverty <= input$percent_poverty[2]) &
                                          (Borough %in% input$borough) &
                                          (input$ccAlgebra[1] <= Mean.Score_Common.Core.Algebra & Mean.Score_Common.Core.Algebra <= input$ccAlgebra[2])
@@ -13,7 +15,7 @@ shinyServer( function(input, output){
                                          (input$ccGeometry[1] <= Mean.Score_Common.Core.Geometry & Mean.Score_Common.Core.Geometry <= input$ccGeometry[2] )
                                         &
                                          ((input$ccLE[1] <= Mean.Score_Living.Environment & Mean.Score_Living.Environment <= input$ccLE[2]) ))
-         return(d)
+         return(d) }
      })
 
      #The HS tab will output the map based on user's input
