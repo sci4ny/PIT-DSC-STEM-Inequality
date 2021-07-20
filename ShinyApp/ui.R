@@ -40,11 +40,11 @@ fluidPage(
           #main panel will showcase the output (map)
           mainPanel(
                 #we create different panels for different grade ranges
-                tabsetPanel(
+                tabsetPanel(id = "CurrentTab",
                   tabPanel(title = "High School" , leafletOutput(outputId = "HS"))
-                )
           )
      )
    )
  )
+)
 
