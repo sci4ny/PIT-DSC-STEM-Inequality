@@ -18,11 +18,6 @@ fluidPage(
                h5("Data shown for each school are the most relevant metrics (found via MLR)
                   in predicting the outcome of STEM regents or math test results.")
                 ,
-                #this creates an option for the user to select what grade range they want to see
-                selectInput("grade_range",
-                            "Select a Grade Range:",
-                            choices = c("All","High School", "Middle School", "Elementary School")
-                            ),
                #group box that allows user to select boroughs
                checkboxGroupInput("borough", label = "Borough to Include: ",
                                   choices = c("BRONX","BROOKLYN","MANHATTAN","QUEENS","STATEN IS"),
@@ -30,7 +25,7 @@ fluidPage(
                #creates a slider that select what range of % poverty the user wants to see
                sliderInput("percent_poverty",
                            label = "Percent Poverty Range: ",
-                           min = .0, max = .95, value = c(.0,.95)),
+                           min = 0, max = 100, value = c(0,100)),
                #creates slider input for STEM regent scores
                sliderInput("ccAlgebra",
                            label = "Mean Score for Common Core Algebra Range: ",
@@ -44,8 +39,12 @@ fluidPage(
           ),
           #main panel will showcase the output (map)
           mainPanel(
-                  leafletOutput(outputId = "map")
+                #we create different panels for different grade ranges
+                tabsetPanel(
+                  tabPanel(title = "High School" , leafletOutput(outputId = "HS"))
+                )
           )
      )
-)
-)
+   )
+ )
+
