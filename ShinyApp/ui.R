@@ -30,7 +30,17 @@ fluidPage(
                #creates a slider that select what range of % poverty the user wants to see
                sliderInput("percent_poverty",
                            label = "Percent Poverty Range: ",
-                           min = .0, max = .95, value = c(.0,.95))
+                           min = .0, max = .95, value = c(.0,.95)),
+               #creates slider input for STEM regent scores
+               sliderInput("ccAlgebra",
+                           label = "Mean Score for Common Core Algebra Range: ",
+                           min = 0, max = 100, value = c(0,100)),
+               sliderInput("ccGeometry",
+                           label = "Mean Score for Common Core Geometry Range: ",
+                           min = 0, max = 100, value = c(0,100)),
+               sliderInput("ccLE",
+                           label = "Mean Score for Living Environment Range: ",
+                           min = 0, max = 100, value = c(0,100))
           ),
           #main panel will showcase the output (map)
           mainPanel(
