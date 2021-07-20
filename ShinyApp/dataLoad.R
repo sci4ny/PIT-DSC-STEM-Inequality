@@ -13,4 +13,9 @@ hs_data[,31] <- str_replace(hs_data[,31],"/", ":")
 #remove whitespace from end of string and front of string
 hs_data[,"Borough"] <- hs_data[,"Borough"] %>%  str_trim(side = "both")
 
+#adds salary per classroom column
+hs_data <- hs_data %>% mutate('Salary Per Classroom Teacher' = Classroom.Teachers_2017.18
+                    / (Classroom.Teachers.w..0.3.Years.Experience_2017.18 + Classroom.Teachers.w..More.than.3.Years.Experience_2017.18)
+)
+
 
