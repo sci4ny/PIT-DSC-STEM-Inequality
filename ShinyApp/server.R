@@ -16,28 +16,61 @@ shinyServer( function(input, output){
          return(d)
      })
 
-     #we want to output a map based on the grade_range input
-     output$map <- renderLeaflet({
-          #this is a template, shows that High school map works when selecting High school input
-           if (input$grade_range == "High School"){
+     #The HS tab will output the map based on user's input
+     output$HS <- renderLeaflet({
+                #make the points of the school a certain shade of the color red depending
+                #on Percent Poverty
+                pal <- colorBin(palette = c('#fff7ec','#fee8c8','#fdd49e','#fdbb84','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'),9, domain = hs_data$Percent.Poverty)
+
+
+                #this creates a leaflet map to be displayed
                 leaflet() %>%
                      addTiles() %>%
-                     addCircleMarkers(data = school_data() , lng = ~Longitude, lat = ~Latitude, color = "#2a52be",
+                     addCircleMarkers(data = school_data() , lng = ~Longitude, lat = ~Latitude, color = ~pal(Percent.Poverty),
                                       popup = ~paste("<h3 style = 'color: #2a52be'>School Information</h3>",
+                                                     "<b> DBN: </b>",
+                                                     dbn,
+                                                     "<br>",
                                                      "<b>School Name: </b>",
                                                      school_name,
                                                      "<br>",
+                                                     "<b> Mean Score for Algebra Regent: </b> ",
+                                                     Mean.Score_Common.Core.Algebra,
+                                                     "<br>",
+                                                     "<b> Mean Score for Geometry Regent: </b> ",
+                                                     Mean.Score_Common.Core.Geometry,
+                                                     "<br>",
+                                                     "<b> Mean Score For Living Environment Regent: </b>",
+                                                     Mean.Score_Living.Environment,
+                                                     "<br>",
                                                      "<b>% of Students in Poverty: </b>",
-                                                     paste(Percent.Poverty * 100,"%"),
+                                                     paste(Percent.Poverty,"%"),
+                                                     "<br>",
+                                                     "<b> Total School Funding Per Pupil: </b>",
+                                                     Total.School.Funding.per.Pupil_2017.18,
+                                                     "<br>",
+                                                     "<b> Salary Per Classroom Teache: </b>",
+                                                     `Salary Per Classroom Teacher`,
                                                      "<br>",
                                                      "<b> Ratio of STEM teachers to Students: </b>",
                                                      Ratio.of.Full.Time.Licensed.STEM.Teachers.to.Students,
                                                      "<br>",
                                                      "<b> STEM AP Courses Offered: </b>",
                                                      STEM_AP_Courses_Offered,
-                                                     sep = " "))
+                                                     "<br>",
+                                                     "<b> STEM Clubs Offered: </b>",
+                                                     club_number,
+                                                     sep = " ")) %>%
+                #adds a bottom right label that displays the color with the corresponding
+                #Percentage of students in poverty
+                addLegend(position = "bottomright",
+                          pal = pal,
+                          values = school_data()$Percent.Poverty,
+                          title = "Percentage of Students in Poverty",
+                          opacity = 0.7,
+                          )
 
-           }
+
      })
 
 
