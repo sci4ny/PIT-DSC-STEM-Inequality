@@ -18,4 +18,9 @@ hs_data <- hs_data %>% mutate('Salary Per Classroom Teacher' = Classroom.Teacher
                     / (Classroom.Teachers.w..0.3.Years.Experience_2017.18 + Classroom.Teachers.w..More.than.3.Years.Experience_2017.18)
 )
 
+#adds commas to better display larger numbers (1000 turns to 1,000)
+hs_data[,45] <- format(hs_data[,45], big.mark = ",", scientific = FALSE)
+hs_data[,50] <- format(hs_data[,50], big.mark = ",", scientific = FALSE)
 
+#changes poverty percent to non-decimals (.91 turn to 91)
+hs_data[,47] <- hs_data[,47] * 100
