@@ -1,5 +1,4 @@
 #server for our app
-library(shiny)
 
 
 shinyServer( function(input, output){
