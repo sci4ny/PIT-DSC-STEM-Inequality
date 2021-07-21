@@ -15,7 +15,7 @@ shinyServer( function(input, output){
         output$MS <- renderLeaflet({
                 #make the points of the school a certain shade of the color red depending
                 #on Percent Poverty
-                pal <- colorBin(palette = c('#fff7ec','#fee8c8','#fdd49e','#fdbb84','#fc8d59','#ef6548','#d7301f','#b30000','#7f0000'),9, domain = ms_df$`Poverty Percent`)
+                pal <- colorBin(palette = c('#fff7fb','#ece7f2','#d0d1e6','#a6bddb','#74a9cf','#3690c0','#0570b0','#045a8d','#023858'),9, domain = ms_df$`Poverty Percent`)
 
 
                 #this creates a leaflet map to be displayed

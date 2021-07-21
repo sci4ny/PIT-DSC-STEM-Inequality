@@ -37,7 +37,7 @@ shinyUI(
                                                   #creates slider input for STEM regent scores
                                                   sliderInput("TSFPP",
                                                               label = "Total School Funding Per Pupil",
-                                                              min = 0, max = 50000, value = c(0,50000)),
+                                                              min = 15000, max = 50000, value = c(15000,50000)),
                                                   sliderInput("Scaled Mean Score",
                                                               label = "Scaled Mean Math Score: ",
                                                               min = 0, max = 500, value = c(0,500)),
