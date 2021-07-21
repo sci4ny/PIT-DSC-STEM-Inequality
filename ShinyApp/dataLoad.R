@@ -7,7 +7,6 @@ library(readxl)
 #load hs data
 hs_data <- read.csv("~/PIT-DSC-STEM-Inequality/data/2018_HS_Data.csv")
 ms_df <- read_excel('~/PIT-DSC-STEM-Inequality/data/2018 MS Metrics (Complete).xlsx')
-csr <- read_excel("~/PIT-DSC-STEM-Inequality/data/Computer Science Report.xlsx", sheet = "STEM Teachers", col_types = c("text", "skip", "text", "skip", "skip", "skip", "text"), skip = 3)
 
 #turn decimal number in the ratio column into fractions, then turn fractions into ratios
 hs_data[,31] <- paste(fractions(hs_data[,31], cycles = 3), " ")
