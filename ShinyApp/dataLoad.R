@@ -2,6 +2,7 @@
 library(dplyr)
 library(MASS)
 library(stringr)
+library(readxl)
 
 #load hs data
 hs_data <- read.csv("~/PIT-DSC-STEM-Inequality/data/2018_HS_Data.csv")
