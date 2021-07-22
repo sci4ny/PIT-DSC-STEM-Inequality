@@ -30,8 +30,10 @@ fluidPage(
                            label = "Percent Poverty Range: ",
                            min = 0, max = 100, value = c(0,100)),
 
+
+
                #because we want to display different sliders for specific grade ranges,
-               #we only include these sliders, when the tab selected is high school
+               #we only include these sliders when the tab selected is high school
                conditionalPanel( condition = "input.CurrentTab == 'High School'",
 
                #creates slider input for STEM regent scores
@@ -46,6 +48,8 @@ fluidPage(
                            label = "Mean Score for Living Environment Range: ",
                            min = 0, max = 100, value = c(0,100))
           ),
+
+          #conditional panel for Middle School
           conditionalPanel( condition = "input.CurrentTab == 'Middle School'",
 
                             #creates slider
@@ -59,6 +63,7 @@ fluidPage(
 
           #main panel will showcase the output (map)
           mainPanel(
+
                 #we create different panels for different grade ranges
                 tabsetPanel(id = "CurrentTab",
                   tabPanel(title = "High School" , leafletOutput(outputId = "HS")),
