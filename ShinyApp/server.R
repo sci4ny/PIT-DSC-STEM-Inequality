@@ -111,7 +111,7 @@ shinyServer( function(input, output){
                                                      `Stem Activities Count`,
                                                      "</br>",
                                                      "<b> Scaled Mean Math Test Scores </b>",
-                                                     `Scaled Mean Score`,
+                                                     round(`Scaled Mean Score`,2),
                                                      "</br>", sep = " ")) %>%
                      #adds a bottom right label that displays the color with the corresponding
                      #Percentage of students in poverty
