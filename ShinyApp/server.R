@@ -19,7 +19,10 @@ shinyServer( function(input, output){
 
          #if current tab is Middle School, work with Middle School data
          else if (input$CurrentTab == "Middle School") {
-                            d <- ms_df %>% filter(( input$percent_poverty[1] <=  `Poverty Percent` & `Poverty Percent` <= input$percent_poverty[2]) & (Borough %in% input$borough) & (input$`TSFPP`[1] <= TSFPP & TSFPP <= input$`TSFPP`[2]) & (input$`Scaled Mean Score`[1] <= `Scaled Mean Score` & `Scaled Mean Score` <= input$`Scaled Mean Score`[2]))
+                            d <- ms_df %>% filter(( input$percent_poverty[1] <=  `Poverty Percent` & `Poverty Percent` <= input$percent_poverty[2])
+                                                  & (Borough %in% input$borough)
+                                                  & (input$`TSFPP`[1] <= TSFPP & TSFPP <= input$`TSFPP`[2])
+                                                  & (input$`Scaled Mean Score`[1] <= `Scaled Mean Score` & `Scaled Mean Score` <= input$`Scaled Mean Score`[2]))
                              return (d) }
 
      })
