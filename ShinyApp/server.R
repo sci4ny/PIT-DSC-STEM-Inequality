@@ -16,6 +16,8 @@ shinyServer( function(input, output){
                                         &
                                          ((input$ccLE[1] <= Mean.Score_Living.Environment & Mean.Score_Living.Environment <= input$ccLE[2]) ))
          return(d) }
+
+         #if current tab is Middle School, work with Middle School data
          else if (input$CurrentTab == "Middle School") {
                             d <- ms_df %>% filter(( input$percent_poverty[1] <=  `Poverty Percent` & `Poverty Percent` <= input$percent_poverty[2]) & (Borough %in% input$borough) & (input$`TSFPP`[1] <= TSFPP & TSFPP <= input$`TSFPP`[2]) & (input$`Scaled Mean Score`[1] <= `Scaled Mean Score` & `Scaled Mean Score` <= input$`Scaled Mean Score`[2]))
                              return (d) }
@@ -23,8 +25,7 @@ shinyServer( function(input, output){
      })
 
 
-     #The tab will output the map based on user's current tab
-
+     #Map for the High School tab
      output$HS <- renderLeaflet({
                 #make the points of the school a certain shade of the color red depending
                 #on Percent Poverty
