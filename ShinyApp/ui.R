@@ -72,7 +72,11 @@ fluidPage(
                   tags$style(type="text/css",
                              ".shiny-output-error { visibility: hidden; }",
                              ".shiny-output-error:before { visibility: hidden; }")
-          )
+          ),
+
+               #this is to output the number of schools currently displayed on the map
+               verbatimTextOutput(outputId = "totalSchools")
+
      )
    )
  )

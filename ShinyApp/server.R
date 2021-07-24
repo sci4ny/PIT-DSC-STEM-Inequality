@@ -76,7 +76,6 @@ shinyServer( function(input, output){
                           opacity = 0.7,
                           )
 
-
      })
 
 
@@ -128,7 +127,10 @@ shinyServer( function(input, output){
 
      })
 
-
+     #bottom of tab displays current number of schools on the map
+     output$totalSchools <- renderText({
+             paste("Number of Schools Currently Displayed: ", nrow(school_data()) )
+             })
 
 })
 
