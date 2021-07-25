@@ -28,9 +28,10 @@ shinyServer( function(input, output){
 
                 #if current tab is Elementary School, work with Elementary School data
                 else if (input$CurrentTab == "Elementary School") {
-                        d <- elem_data %>% filter((input$percent_poverty[1] <= Pov & Pov <= input$percent_poverty[2]) &
-                                                          (input$FPP[1] <= FPP & FPP <= input$FPP[2]) &
-                                                          (input$MSS.All.Grades.Slider[1] <= MSS.All.Grades & MSS.All.Grades <= input$MSS.All.Grades.Slider[2]))
+                        d <- elem_data %>% filter((input$percent_poverty[1] <= Pov & Pov <= input$percent_poverty[2])
+                                                  & (Borough %in% input$borough)
+                                                  & (input$FPP[1] <= FPP & FPP <= input$FPP[2])
+                                                  & (input$MSS.All.Grades.Slider[1] <= MSS.All.Grades & MSS.All.Grades <= input$MSS.All.Grades.Slider[2]))
                         return (d) }
         })
 
