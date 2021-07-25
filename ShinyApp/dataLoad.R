@@ -13,6 +13,11 @@ elem_data <- read_excel("~/PIT-DSC-STEM-Inequality/data/elementarymapdata.xlsx")
 hs_data[,31] <- paste(fractions(hs_data[,31], cycles = 3), " ")
 hs_data[,31] <- str_replace(hs_data[,31],"/", ":")
 
+#for elementary dataset, first have to unlist
+elem_data$RTS <- unlist(elem_data$RTS)
+elem_data$RTS <- paste(fractions(elem_data$RTS, cycles = 3), " ")
+elem_data$RTS <- str_replace(elem_data$RTS, "/", ":")
+
 ms_df <- subset(ms_df, select = -c(9) )
 
 #remove whitespace from end of string and front of string
