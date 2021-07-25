@@ -152,7 +152,7 @@ shinyServer( function(input, output){
                                                         "<b>School Name:</b>", Name.y,
                                                         "<br>",
                                                         "<b>% of Students in Poverty: </b>",
-                                                        paste(Pov, "%"),
+                                                        paste(round(Pov,2), "%"),
                                                         "<br>",
                                                         "<b>Mean Scale Score, Grades 3-5: </b>",
                                                         round(MSS.All.Grades,2),
