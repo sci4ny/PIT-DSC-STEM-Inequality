@@ -36,5 +36,21 @@ hs_data[,50] <- format(hs_data[,50], big.mark = ",", scientific = FALSE)
 hs_data[,47] <- hs_data[,47] * 100
 elem_data[,47] <- elem_data[,47] * 100
 
+#we want to add an elementary column to the elem_data
+elem_data$Borough <- NA
 
+#want to go through every row and based on dbn determine the which borough the
+#school resides in
+for (i in 1:nrow(elem_data)) {
+
+     #depending on the letter of the DBN, we assign it the appropriate borough
+
+     if (substr(elem_data$DBN[i],3,3) == "X") {elem_data$Borough[i] <- "BRONX"}
+     else if (substr(elem_data$DBN[i],3,3) == "M") {elem_data$Borough[i] <- "MANHATTAN"}
+     else if (substr(elem_data$DBN[i],3,3) == "K") {elem_data$Borough[i] <- "BROOKLYN"}
+     else if (substr(elem_data$DBN[i],3,3) == "Q") {elem_data$Borough[i] <- "QUEENS"}
+     else if (substr(elem_data$DBN[i],3,3) == "R") {elem_data$Borough[i] <- "STATEN IS"}
+
+
+          }
 
