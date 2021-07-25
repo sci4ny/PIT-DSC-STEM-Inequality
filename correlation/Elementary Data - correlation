@@ -65,3 +65,32 @@ correlation2 <- rcorr(as.matrix(corrdata2), type = 'pearson')
 
 # plot correlation
 plot2 <- cor_plot(correlation2, method = 'square')
+
+
+#----------CORRELATION 3----------#
+
+# redone correlation with Overall MSS and Teacher salary added to dataset, 'data.new.1'
+
+corrdata1 <- data.new.1 %>% 
+  select(-'DBN', -'School Name', -'School Type', -'Building Code', 
+         -'Local School Code', -'Gradespan', -'Address', 
+         -'# of AP Comp Sci Courses', -'# of Full CS Courses', 
+         -'# of Partial CS Courses', -'Student Enrollment', 
+         -'Full Time certified  STEM teachers', 
+         -'Part Time certified STEM teachers', -'Classroom Teachers', 
+        -'Latitude', -'Longitude', -'3rd Mean Scale Score', -'4th Mean Scale Score',
+        -'5th Mean Scale Score', -'3rd % Level 1', -'3rd % Level 2', -'3rd % Level 3', 
+         -'3rd % Level 4', -'3rd % Level 3+4', -'4th % Level 1', -'4th % Level 2', 
+         -'4th % Level 3', -'4th % Level 4', -'4th % Level 3+4', -'5th % Level 1', 
+         -'5th % Level 2', -'5th % Level 3', -'5th % Level 4', -'5th % Level 3+4',) %>%
+  rename(NumCS = '# of Comp Sci Courses', 
+         RTS = 'Ratio of Full Time Licensed STEM Teachers to Students*',
+         BW = 'Mbps Bandwidth', FRPL = 'K-12 FRPL Count', 
+         Teach03 = 'Classroom Teachers w/ 0-3 Years Experience',
+         TeachMore3 = 'Classroom Teachers w/ More than 3 Years Experience',
+         FPP = 'Total School Funding per Pupil', Pov = '% Poverty', 
+         ENI = 'Economic Need Index', TTRR = 'Total Teacher Response Rate')
+
+correlation.new <- rcorr(as.matrix(corrdata1), type = 'pearson')
+
+plot.new <- cor_plot(correlation.new, method = 'square')
