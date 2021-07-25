@@ -40,3 +40,50 @@ lm.5thmean <- lm(MSS.5th ~ NumCS + RTS + BW + FPP + Pov + ENI + TTRR + a.agree +
 
 # showcase results w/ tab_model (library(sjPlot))
 tab_model(lm.5thmean)
+
+#-----UPDATED LINEAR REGRESSIONS-----#
+
+# linreg using 'data.new.1', which includes teacher salary and overall MSS
+
+datarenamed.1 <- data.new.1 %>% 
+  rename(NumCS = '# of Comp Sci Courses', Name = 'School Name',
+         RTS = 'Ratio of Full Time Licensed STEM Teachers to Students*',
+         BW = 'Mbps Bandwidth', FRPL = 'K-12 FRPL Count', 
+         Teach03 = 'Classroom Teachers w/ 0-3 Years Experience',
+         TeachMore3 = 'Classroom Teachers w/ More than 3 Years Experience',
+         FPP = 'Total School Funding per Pupil', Pov = '% Poverty', 
+         ENI = 'Economic Need Index', Lvl1.3rd = '3rd % Level 1',
+         Lvl2.3rd = '3rd % Level 2', Lvl3.3rd = '3rd % Level 3', 
+         Lvl4.3rd = '3rd % Level 4', Lvl3and4.3rd = '3rd % Level 3+4',
+         Lvl1.4th = '4th % Level 1', Lvl2.4th = '4th % Level 2', 
+         Lvl3.4th = '4th % Level 3', Lvl4.4th = '4th % Level 4', 
+         Lvl3and4.4th = '4th % Level 3+4', Lvl1.5th = '5th % Level 1', 
+         Lvl2.5th = '5th % Level 2', Lvl3.5th = '5th % Level 3', 
+         Lvl4.5th = '5th % Level 4', Lvl3and4.5th = '5th % Level 3+4',
+         MSS.3rd = '3rd Mean Scale Score', MSS.4th = '4th Mean Scale Score',
+         MSS.5th = '5th Mean Scale Score', TTRR = 'Total Teacher Response Rate')
+
+# linear regression w/ 3rd mean scale score (dependent) against our disparity
+# metrics (independent) ...
+lm.3rdmean.1 <- lm(MSS.3rd ~ NumCS + RTS + BW + FPP + Pov + ENI + TTRR + a.agree +
+                   b.agree + c.agree + PercentFRPL + Avg.Teacher.Salary, datarenamed.1)
+# showcase results w/ tab_model (library(sjPlot))
+tab_model(lm.3rdmean.1)
+
+# repeat: linreg w/ 4th mean scale score against disparity metrics
+lm.4thmean.1 <- lm(MSS.4th ~ NumCS + RTS + BW + FPP + Pov + ENI + TTRR + a.agree +
+                     b.agree + c.agree + PercentFRPL + Avg.Teacher.Salary, datarenamed.1)
+# showcase results w/ tab_model (library(sjPlot))
+tab_model(lm.4thmean.1)
+
+# repeat: linreg w/ 5th mean scale score against disparity metrics
+lm.5thmean.1 <- lm(MSS.5th ~ NumCS + RTS + BW + FPP + Pov + ENI + TTRR + a.agree +
+                     b.agree + c.agree + PercentFRPL + Avg.Teacher.Salary, datarenamed.1)
+# showcase results w/ tab_model (library(sjPlot))
+tab_model(lm.5thmean.1)
+
+# repeat: linreg w/ overall mean scale score against disparity metrics
+lm.allmean <- lm(MSS.All.Grades ~ NumCS + RTS + BW + FPP + Pov + ENI + TTRR + a.agree +
+                     b.agree + c.agree + PercentFRPL + Avg.Teacher.Salary, datarenamed.1)
+# showcase results w/ tab_model (library(sjPlot))
+tab_model(lm.allmean)
