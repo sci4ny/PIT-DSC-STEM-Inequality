@@ -68,7 +68,7 @@ shinyUI(
                                                   sliderInput("FPP",
                                                               label = "Total School Funding Per Pupil: ",
                                                               min = 15000, max = 50000, value = c(15000,50000)),
-                                                  sliderInput("MSS.All.Grades",
+                                                  sliderInput("MSS.All.Grades.Slider",
                                                               label = "Mean Scale Score for State Math Tests: ",
                                                               min = 550, max = 650, value = c(550,650))
 
