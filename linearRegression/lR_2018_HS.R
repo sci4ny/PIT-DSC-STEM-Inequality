@@ -37,6 +37,8 @@ df <- df %>% rename( MSCCA = Mean.Score_Common.Core.Algebra,
 #get rid of uneccessary columns
 df <- df %>% select(-c(1,14:18))
 
+#scaled the dataframe, then turned it back to a dataframe for linear regression analysis
+df <- data.frame(scale(df))
 #linear regression on all stem regents
 mscca <- lm(MSCCA ~  Percent.Poverty + TSFPP + RTS + PSTA.17A + PSTA.17B + PSTA.17C + STEM_AP_Courses_Offered + club_number
             + SPCT , df)
@@ -59,4 +61,4 @@ msp <- lm(MSP ~  Percent.Poverty + TSFPP + RTS + PSTA.17A + PSTA.17B + PSTA.17C 
           + SPCT , df)
 
 #showcase the results with tab_model (library(sjPlot))
-#tab_model(mscca)
+#tab_model(mscca, mscca2, msccg, msle, mses, msc, msp)
