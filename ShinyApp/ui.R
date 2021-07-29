@@ -58,7 +58,7 @@ shinyUI(
                                                               min = 15000, max = 50000, value = c(15000,50000)),
                                                   sliderInput("Scaled Mean Score",
                                                               label = "Mean Scale Score for State Math Tests: ",
-                                                              min = 0, max = 500, value = c(0,500))
+                                                              min = 0, max = 700, value = c(0,700))
                                 ),
 
                                 #conditional panel for Elementary School
