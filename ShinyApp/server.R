@@ -81,7 +81,7 @@ shinyServer( function(input, output){
                                   pal = pal,
                                   values = school_data()$Percent.Poverty,
                                   title = "Percentage of Students in Poverty",
-                                  opacity = 0.7,
+                                  opacity = .7,
                         )
 
         })
@@ -91,8 +91,7 @@ shinyServer( function(input, output){
         output$MS <- renderLeaflet({
                 #make the points of the school a certain shade of the color blue depending
                 #on Percent Poverty
-                pal <- colorBin(palette = c('#fff7fb','#ece7f2','#d0d1e6','#a6bddb','#74a9cf','#3690c0','#0570b0','#045a8d','#023858'),9, domain = ms_df$`Poverty Percent`)
-
+                pal <- colorBin(palette = c('#5cafc9','#437dba','#3242a3','#1b207a'),9, domain = ms_df$`Poverty Percent`)
 
                 #this creates a leaflet map to be displayed
                 leaflet() %>%
@@ -140,8 +139,8 @@ shinyServer( function(input, output){
         output$ES <- renderLeaflet({
                 #make the points of the school a certain shade of a pinkish-red color depending
                 #on Percent Poverty
-                pal <- colorBin(palette = c('#ffe6e8', '#ffccd0', '#ffb3b8', '#ff99a0', '#ff8088', '#ff6670', '#ff4d58', '#ff3340', '#ff1928' ),9, domain = elem_data$Pov)
-
+                pal <- colorBin(palette = c('#F58FBD', '#EB78B0', '#E061A4', '#D64A97','#CC338B' ),9, domain = elem_data$Pov)
+                #c('#FF6FFE', '#FF53E0', '#FF38C1', '#FF1CA3', '#FF0084' )
 
                 #this creates a leaflet map to be displayed
                 leaflet() %>%
