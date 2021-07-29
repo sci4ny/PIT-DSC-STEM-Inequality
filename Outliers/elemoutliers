@@ -1,0 +1,59 @@
+#-----outlier analysis-----#
+
+# summary statistics for variables in dataset, first looking at Pov and ENI
+
+mean(datarenamed$Pov)
+# prints: 0.7653058
+sd(datarenamed$Pov)
+# prints: 0.2104896
+
+# therefore, our outliers should be schools with Poverty rates over 0.9757954, 
+# which is one standard deviation ... (however knowing that the rates were 
+# capped at 0.95, we will use that as our "one standard deviation")
+
+mean(datarenamed$ENI)
+# prints: 0.7311782
+sd(datarenamed$ENI)
+# prints: 0.2162851
+
+# therefore, our outliers should be schools with ENI over 0.9474632, 
+# which is one standard deviation
+
+# now we need to look at 'mean test scores'
+mean(datarenamed$MSS.3rd, na.rm = TRUE)
+# 599.047
+mean(datarenamed$MSS.4th, na.rm = TRUE)
+# 599.0777
+mean(datarenamed$MSS.5th, na.rm = TRUE)
+# 598.6426
+
+sd(datarenamed$MSS.3rd, na.rm = TRUE)
+# 10.60933
+sd(datarenamed$MSS.4th, na.rm = TRUE)
+# 11.14609
+sd(datarenamed$MSS.5th, na.rm = TRUE)
+# 11.09841
+
+# 3rd grade: 1sd=609.6563, 2sd=620.2657
+# 4th grade: 1sd=610.2238, 2sd=621.3699
+# 5th grade: 1sd=609.741, 2sd=620.8394
+
+# Poverty rates over 0.9757954 and ENI over 0.9474632, 
+# w/ scores over 609 (roughly)
+
+povoutliers <- datarenamed %>% 
+  filter(Pov >= .95) %>% 
+  filter(MSS.3rd >= 609.6563 | MSS.4th >= 610.2238 | MSS.5th >= 609.741)
+# only returns 7 schools
+
+povoutliers2 <- datarenamed %>% 
+  filter(Pov >= .95) %>% 
+  filter(MSS.3rd >= 609.6563 & MSS.4th >= 610.2238 & MSS.5th >= 609.741)
+# only returns 2 schools
+
+# looking more specifically at the latter two, the most notable thing I found
+# was that for the teacher survey questions, all questions had a 100% agree
+# response, maybe this means that the answer is to make sure teachers are happy,
+
+# additionally, think it would be valuable to look further into these schools, 
+# namely, The Walton Avenue School and The School For Future Leaders
