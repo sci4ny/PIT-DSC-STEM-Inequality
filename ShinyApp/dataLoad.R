@@ -9,6 +9,7 @@ hs_data <- read.csv("~/PIT-DSC-STEM-Inequality/data/2018_HS_Data.csv")
 ms_df <- read_excel('~/PIT-DSC-STEM-Inequality/data/ratiochange.xlsx')
 elem_data <- read_excel("~/PIT-DSC-STEM-Inequality/data/elementarymapdata.xlsx")
 master_data <- read.csv("~/PIT-DSC-STEM-Inequality/data/2018_Master_Data.csv")
+outlier_data <- read.csv("~/PIT-DSC-STEM-Inequality/data/Outliers.csv") %>% dplyr::select(-c(1))
 
 #turn decimal number in the ratio column into fractions, then turn fractions into ratios
 hs_data[,31] <- paste(fractions(hs_data[,31], cycles = 3), " ")
@@ -47,6 +48,8 @@ master_data[,23] <- master_data[,23] * 100
 
 #we want to add an elementary column to the elem_data
 elem_data$Borough <- NA
+
+
 
 #want to go through every row and based on dbn determine the which borough the
 #school resides in
