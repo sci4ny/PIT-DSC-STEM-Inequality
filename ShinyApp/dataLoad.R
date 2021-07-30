@@ -43,6 +43,7 @@ hs_data[,50] <- format(hs_data[,50], big.mark = ",", scientific = FALSE)
 #changes poverty percent to non-decimals (.91 turn to 91)
 hs_data[,47] <- hs_data[,47] * 100
 elem_data[,47] <- elem_data[,47] * 100
+master_data[,23] <- master_data[,23] * 100
 
 #we want to add an elementary column to the elem_data
 elem_data$Borough <- NA
