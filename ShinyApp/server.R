@@ -46,6 +46,11 @@ shinyServer( function(input, output){
                                                   & (input$FPP[1] <= FPP & FPP <= input$FPP[2])
                                                   & (input$MSS.All.Grades.Slider[1] <= MSS.All.Grades & MSS.All.Grades <= input$MSS.All.Grades.Slider[2]))
                         return (d) }
+
+                else if (input$CurrentTab == "Outliers") {
+                        d <- outlier_data
+                        return(d)
+                }
         })
 
 
@@ -226,6 +231,31 @@ shinyServer( function(input, output){
                                   title = "Percentage of Students in Poverty",
                                   opacity = 0.7,
                         )
+
+        })
+
+        output$OUT <- renderLeaflet({
+
+                leaflet() %>%
+                        addTiles() %>%
+                        addCircleMarkers(data = school_data(), lng = ~Longitude, lat = ~Latitude, color = "#1FA808", opacity = .7,
+                                                         popup = ~paste("<h3 style = 'color: #2a52be'>School Information</h3>",
+                                                                        "<b>DBN:</b>",
+                                                                        dbn,
+                                                                        "<br>",
+                                                                        "<b>School Name: </b>",
+                                                                        school_name,
+                                                                        "<br>",
+                                                                        "<b> Address:  </b>",
+                                                                        Address,
+                                                                        "<br>",
+                                                                        "<b>Grade Span: </b>",
+                                                                        grade_span,
+                                                                        "<br>",
+                                                                        "<b> Website: </b>",
+                                                                        paste0("<a href='",Website,"'>",Website,"</a>"),
+                                                                        sep = " "))
+
 
         })
 
