@@ -6,8 +6,21 @@ shinyServer( function(input, output){
         #want reactive object because our map/results will change depending on user input
 
         school_data <- reactive({
+
+                #creates condition, if current tab is All, work with master dataset
+                if (input$CurrentTab == "All (Middle&Elementary)") {
+                        d <- master_data %>% filter(( input$percent_poverty[1] <= Percent.Poverty & Percent.Poverty <= input$percent_poverty[2])
+                                                    & (Borough %in% input$borough)
+                                                    & (input$FundingPerPupil[1] <= Total.School.Funding.per.Pupil & Total.School.Funding.per.Pupil <= input$FundingPerPupil[2])
+                                                    & (input$Scale.Score.Slider[1] <= Mean.Scale.Math.Score & Mean.Scale.Math.Score <= input$Scale.Score.Slider[2]))
+                        return(d)}
+
+
+
+
+
                 #creates conditional, if current tab is High School, work with High School data
-                if (input$CurrentTab == "High School") {
+                else if (input$CurrentTab == "High School") {
                         d <- hs_data %>% filter(( input$percent_poverty[1] <= Percent.Poverty & Percent.Poverty <= input$percent_poverty[2]) &
                                                         (Borough %in% input$borough) &
                                                         (input$ccAlgebra[1] <= Mean.Score_Common.Core.Algebra & Mean.Score_Common.Core.Algebra <= input$ccAlgebra[2])
@@ -34,6 +47,51 @@ shinyServer( function(input, output){
                                                   & (input$MSS.All.Grades.Slider[1] <= MSS.All.Grades & MSS.All.Grades <= input$MSS.All.Grades.Slider[2]))
                         return (d) }
         })
+
+
+        #Map for the All Tab
+        output$All <- renderLeaflet({
+                #make the points of the school a certain color depending on their school type
+                pal <- colorFactor(palette = c('#336601','#D64A97','#ff6003','#3242a3','#653300'), domain = master_data$School.Type)
+
+
+                #create the leaflet map
+                leaflet() %>%
+                        addTiles() %>%
+                        addCircleMarkers(data = school_data(), lng = ~Longitude, lat = ~Latitude, color = ~pal(School.Type),
+                                         popup = ~paste("<h3 style = 'color: #2a52be'>School Information</h3>",
+                                                        "<b>DBN:</b>",
+                                                         dbn,
+                                                        "<br>",
+                                                        "<b>School Name:</b>",
+                                                        School.Name,
+                                                        "<br>",
+                                                        "<b> Grade Span: </b>",
+                                                        gradespan,
+                                                        "<br>",
+                                                        "<b>% of Students in Poverty: </b>",
+                                                        paste(round(Percent.Poverty,2), "%"),
+                                                        "<br>",
+                                                        "<b>Mean Scale Math Score: </b>",
+                                                        round(Mean.Scale.Math.Score,2),
+                                                        "<br>",
+                                                        "<b> Ratio of STEM Teachers to Students: </b>",
+                                                        Ratio.of.Full.Time.Licensed.STEM.Teachers.to.Students,
+                                                        sep = " ")) %>%
+                        addLegend(position = "bottomright",
+                                  pal = pal,
+                                  values = school_data()$School.Type,
+                                  title = "School Type",
+                                  opacity = .7,
+                        )
+
+
+
+
+
+        })
+
+
 
 
         #Map for the High School tab
