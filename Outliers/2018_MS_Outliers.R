@@ -55,19 +55,19 @@ sd_Poverty.Percent <- sd(ms_data$Poverty.Percent, na.rm = TRUE) %>% round(digits
 
 
 #1 sd above the mean for STEM tests
-test_Math.Proficiency <- mean_Math.Proficiency + 3*sd_Math.Proficiency
-test_X..of.Comp.Sci.Courses <- mean_X..of.Comp.Sci.Courses + 3*sd_X..of.Comp.Sci.Courses
-test_Teacher.Student.Ratio <- mean_Teacher.Student.Ratio + 3*sd_Teacher.Student.Ratio
-test_Mbps.Bandwidth <- mean_Mbps.Bandwidth + 3*sd_Mbps.Bandwidth
-test_PD17a <- mean_PD17a + 3*sd_PD17a
-test_PD17b <- mean_PD17b + 3*sd_PD17b
-test_PD17c <- mean_PD17c + 3*sd_PD17c
-test_Scaled.Mean.Score <- mean_Scaled.Mean.Score + 3*sd_Scaled.Mean.Score
-test_FRPL <- mean_FRPL + 3*sd_FRPL
-test_TSFPP <- mean_TSFPP + 3*sd_TSFPP
-test_Average.Teacher.Salary <- mean_Average.Teacher.Salary + 3*sd_Average.Teacher.Salary
-test_PLVL34 <- mean_PLVL34 + 3*sd_PLVL34
-test_Stem.Activities.Count <- mean_Stem.Activities.Count + 3*sd_Stem.Activities.Count
+test_Math.Proficiency <- mean_Math.Proficiency + 1*sd_Math.Proficiency
+test_X..of.Comp.Sci.Courses <- mean_X..of.Comp.Sci.Courses + 1*sd_X..of.Comp.Sci.Courses
+test_Teacher.Student.Ratio <- mean_Teacher.Student.Ratio + 1*sd_Teacher.Student.Ratio
+test_Mbps.Bandwidth <- mean_Mbps.Bandwidth + 1*sd_Mbps.Bandwidth
+test_PD17a <- mean_PD17a + 1*sd_PD17a
+test_PD17b <- mean_PD17b + 1*sd_PD17b
+test_PD17c <- mean_PD17c + 1*sd_PD17c
+test_Scaled.Mean.Score <- mean_Scaled.Mean.Score + 1*sd_Scaled.Mean.Score
+test_FRPL <- mean_FRPL + 1*sd_FRPL
+test_TSFPP <- mean_TSFPP + 1*sd_TSFPP
+test_Average.Teacher.Salary <- mean_Average.Teacher.Salary + 1*sd_Average.Teacher.Salary
+test_PLVL34 <- mean_PLVL34 + 1*sd_PLVL34
+test_Stem.Activities.Count <- mean_Stem.Activities.Count + 1*sd_Stem.Activities.Count
 
 
 #1 sd above the mean for poverty
@@ -92,4 +92,5 @@ outlier_Stem.Activities.Count <- ms_data %>% filter(Poverty.Percent >= test_Pove
 #create a dataset with all the outlier data with schools
 #outlier_data1 <- outlier_Chemistry %>% full_join(outlier_Algebra)
 #outlier_data <- outlier_data1 %>%  full_join(outlier_Algebra2)
-outlier_data <- outlier_Math.Proficiency %>% full_join(outlier_X..of.Comp.Sci.Courses) %>% full_join(outlier_Teacher.Student.Ratio) %>% full_join(outlier_Mbps.Bandwidth) %>% full_join(outlier_PD17a) %>% full_join(outlier_PD17b) %>% full_join(outlier_PD17c) %>% full_join(outlier_Scaled.Mean.Score) %>% full_join(outlier_FRPL) %>% full_join(outlier_TSFPP) %>% full_join(outlier_Average.Teacher.Salary) %>% full_join(outlier_PLVL34) %>% full_join(outlier_Stem.Activities.Count)
+outlier_data <- outlier_Math.Proficiency %>% full_join(outlier_Scaled.Mean.Score) %>% full_join(outlier_PLVL34)
+write.csv(outlier_data, file = "C:/Users/thena/Google Drive/STEM Research/STEM Inequality R Repository/Outliers/msoutliers.csv")
