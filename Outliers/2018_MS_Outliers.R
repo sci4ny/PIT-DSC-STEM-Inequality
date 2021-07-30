@@ -5,7 +5,7 @@ library(here)
 
 
 #load in our data
-ms_data <- read.csv(here("data", "msOUtliers.csv"))
+ms_data <- read.csv(here("data", "#insertfilenamehere"))
 
 
 #mean/sd calculations for STEM tests
