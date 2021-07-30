@@ -1,0 +1,13 @@
+name: interactiveMap
+title: interactiveMap
+username:
+account: thenml
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4441533
+bundleId: 4873628
+url: https://thenml.shinyapps.io/interactiveMap/
+when: 1627684417.02697
+lastSyncTime: 1627684417.02697
+asMultiple: FALSE
+asStatic: FALSE

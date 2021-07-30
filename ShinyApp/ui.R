@@ -2,8 +2,9 @@
 library(shiny)
 library(dplyr)
 library(leaflet)
+library(here)
 #run the code tha will load our data
-source("dataLoad.r")
+source(here("ShinyApp", "dataLoad.R"))
 
 
 shinyUI(
