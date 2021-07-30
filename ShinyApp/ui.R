@@ -31,6 +31,19 @@ shinyUI(
                                             min = 0, max = 100, value = c(0,100)),
 
 
+                                #conditional panel for All Tab
+                                conditionalPanel( condition = "input.CurrentTab == 'All (Middle&Elementary)'",
+
+                                                  #creates slider
+                                                  sliderInput("FundingPerPupil",
+                                                              label = "Total School Funding Per Pupil: ",
+                                                              min = 15000, max = 50000, value = c(15000,50000)),
+                                                  sliderInput("Scale.Score.Slider",
+                                                              label = "Mean Scale Score for State Math Tests: ",
+                                                              min = 550, max = 650, value = c(550,650))
+
+                                ),
+
 
                                 #because we want to display different sliders for specific grade ranges,
                                 #we only include these sliders when the tab selected is high school
@@ -79,6 +92,7 @@ shinyUI(
 
                                 #we create different panels for different grade ranges
                                 tabsetPanel(id = "CurrentTab",
+                                            tabPanel(title = "All (Middle&Elementary)" , leafletOutput(outputId = "All")),
                                             tabPanel(title = "High School" , leafletOutput(outputId = "HS")),
                                             tabPanel(title = "Middle School" , leafletOutput(outputId = "MS")),
                                             tabPanel(title = "Elementary School" , leafletOutput(outputId = "ES")),
@@ -95,3 +109,4 @@ shinyUI(
                 )
         )
 )
+
