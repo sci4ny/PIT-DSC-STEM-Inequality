@@ -93,4 +93,4 @@ outlier_Stem.Activities.Count <- ms_data %>% filter(Poverty.Percent >= test_Pove
 #outlier_data1 <- outlier_Chemistry %>% full_join(outlier_Algebra)
 #outlier_data <- outlier_data1 %>%  full_join(outlier_Algebra2)
 outlier_data <- outlier_Math.Proficiency %>% full_join(outlier_Scaled.Mean.Score) %>% full_join(outlier_PLVL34)
-write.csv(outlier_data, file = "C:/Users/thena/Google Drive/STEM Research/STEM Inequality R Repository/Outliers/msoutliers.csv")
+#write.csv(outlier_data, file = "C:/Users/thena/Google Drive/STEM Research/STEM Inequality R Repository/Outliers/msoutliers.csv")
