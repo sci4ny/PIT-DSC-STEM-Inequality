@@ -97,6 +97,7 @@ shinyUI(
                                             tabPanel(title = "High School" , leafletOutput(outputId = "HS")),
                                             tabPanel(title = "Middle School" , leafletOutput(outputId = "MS")),
                                             tabPanel(title = "Elementary School" , leafletOutput(outputId = "ES")),
+                                            tabPanel(title = "Outliers", leafletOutput(outputId = "OUT")),
                                             #this prevents error message form showing up when switching tabs
                                             tags$style(type="text/css",
                                                        ".shiny-output-error { visibility: hidden; }",
