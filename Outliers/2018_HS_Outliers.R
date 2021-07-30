@@ -63,3 +63,20 @@ outlier_hs_Physics <- hs_data %>% filter(Percent.Poverty >= one_sd_pov_hs & Mean
 #create a dataset with all the outlier data with schools
 outlier_data1 <- outlier_Chemistry %>% full_join(outlier_hs_Algebra)
 outlier_data <- outlier_data1 %>%  full_join(outlier_hs_Algebra2)
+
+#now want to include/exclude some columns
+outlier_data <- outlier_data %>% dplyr::select(c(1:6))
+outlier_data$Address <- NA
+outlier_data$Website <- NA
+
+#add the addresses and website, since only 3 outlier schools I will enter it manually
+outlier_data$Website[1] <- "https://www.languageandinnovation.org/"
+outlier_data$Website[2] <- "https://www.internationalcommunityhs.org/"
+outlier_data$Website[3] <- "https://www.thewae.org/"
+
+outlier_data$Address[1] <- "925 Astor Ave, Bronx, NY 10469"
+outlier_data$Address[2] <- "345 Brook Avenue, Bronx, NY 10454"
+outlier_data$Address[3] <- "456 White Plains Road, Third Floor, Bronx, NY 10473"
+
+#save it as a csv
+#write.csv(outlier_data, file = "~/PIT-DSC-STEM-Inequality/Outliers/hsoutliers.csv")
