@@ -87,7 +87,16 @@ master_data$School.Type <- NA
 #Want to create 3 broad groups to encapsulate all of our gradespans for the map
 Elementary <- c("K","1","2","3","4","5")
 Middle <- c("6","7","8")
-High <- c("9","10","11","12")
+
+#10,11,12 will be represented by Ten,Eleven,Twelve so as to completely separate them
+#from 1 and 2 (The condition (sum(str_detect("12", Elementary) ))) would be true because the Elementary
+#has '1' and '2', even though what we really want is FALSE since it's not twelve.
+High <- c("9","Ten","Eleven","Twelve")
+
+#we will also temp replace 10,11,12 with the word representatives in our dataset until our loop is done
+master_data[,"gradespan"] <- master_data[,"gradespan"] %>% str_replace("10","Ten")
+master_data[,"gradespan"] <- master_data[,"gradespan"] %>% str_replace("11","Eleven")
+master_data[,"gradespan"] <- master_data[,"gradespan"] %>% str_replace("12","Twelve")
 
 #now we want to fill up our School Type column with values: Elementary School, Middle School,
 #Elementary/Middle School, Middle/High School, All
@@ -115,3 +124,8 @@ for (i in 1:nrow(master_data)) {
 
 
 }
+
+#now revert the change and make Ten, Eleven, Twelve into numbers
+master_data[,"gradespan"] <- master_data[,"gradespan"] %>% str_replace("Ten","10")
+master_data[,"gradespan"] <- master_data[,"gradespan"] %>% str_replace("Eleven","11")
+master_data[,"gradespan"] <- master_data[,"gradespan"] %>% str_replace("Twelve","12")
