@@ -172,9 +172,6 @@ shinyServer( function(input, output){
                                                         "</br>",
                                                         "<b> Total School Funding Per Pupil: </b>",
                                                         TSFPP,
-                                                        # "<br>",
-                                                        # "<b> Ratio of STEM teachers to Students: </b>",
-                                                        # `Ratio of Full Time Licensed STEM Teachers to Students*`,
                                                         "<br>",
                                                         "<b>Ratio of STEM Teachers to Students: </b>",
                                                         `Ratio of Full Time Licensed STEM Teachers to Students*`,
@@ -203,7 +200,7 @@ shinyServer( function(input, output){
                 #make the points of the school a certain shade of a pinkish-red color depending
                 #on Percent Poverty
                 pal <- colorBin(palette = c('#F58FBD', '#EB78B0', '#E061A4', '#D64A97','#CC338B' ),9, domain = elem_data$Pov)
-                #c('#FF6FFE', '#FF53E0', '#FF38C1', '#FF1CA3', '#FF0084' )
+
 
                 #this creates a leaflet map to be displayed
                 leaflet() %>%
