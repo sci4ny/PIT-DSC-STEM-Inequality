@@ -251,6 +251,18 @@ shinyServer( function(input, output){
                                                                         "<br>",
                                                                         "<b> Website: </b>",
                                                                         paste0("<a href='",Website,"'>",Website,"</a>"),
+                                                                        "<br>",
+                                                                        "<b> Mean Scale Math Score: </b> ",
+                                                                        round(Scaled.Mean.Score,2),
+                                                                        "<br>",
+                                                                        "<b> Common Score Algebra Score: </b>",
+                                                                        Mean.Score_Common.Core.Algebra,
+                                                                        "<br>",
+                                                                        "<b> Common Score Algebra 2 Score: </b>",
+                                                                        Mean.Score_Common.Core.Algebra2,
+                                                                        "<br>",
+                                                                        "<b> Common Score Chemistry Score: </b>",
+                                                                        Mean.Score_Physical.Settings.Chemistry,
                                                                         sep = " "))
 
 
