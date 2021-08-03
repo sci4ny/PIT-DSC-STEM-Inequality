@@ -1,10 +1,10 @@
-"","dbn","school_name","Borough","grade_span","Latitude","Longitude","Address","Website"
-"1","11X509","High School of Language and Innovation","BRONX    ","9 to 12",40.859665,-73.861006,"925 Astor Ave, Bronx, NY 10469","https://www.languageandinnovation.org/"
-"2","07X334","International Community High School","BRONX    ","9 to 12",40.81004,-73.917792,"345 Brook Avenue, Bronx, NY 10454","https://www.internationalcommunityhs.org/"
-"3","08X282","Women's Academy of Excellence","BRONX    ","9 to 12",40.814833,-73.85658,"456 White Plains Road, Third Floor, Bronx, NY 10473","https://www.thewae.org/"
-"4","20K223","Montauk (J.H.S. 223)","BROOKLYN","Middle (6-8)",40.634875,-73.981528,"4200 16th Ave, Brooklyn, NY 11204","https://sites.google.com/is223montauk.org/site/"
-"5","24Q061","Leonardo da Vinci (I.S. 61)","QUEENS","Middle (6-8)",40.742668,-73.863307,"98-50 50th Ave, Corona, NY 11368","http://www.davinci61.com/"
-"6","24Q311","Corona Arts and Sciences Academy (CASA)","QUEENS","Middle (6-8)",40.745709,-73.865329,"98-11 44th Ave, Queens, NY 11368","https://www.casa311.org/"
-"7","30Q145","Joseph Pulitzer (I.S. 145) Magnet School of Innovation and Applied Learning","QUEENS","Middle (6-8)",40.754661,-73.887112,"33-34 80th St, Queens, NY 11372","https://www.145innovators.com/"
-"8","09X294","The Walton Avenue School","BRONX","0K,01,02,03,04,05,06,SE",40.8404,-73.915879,"1425 WALTON AVENUE, BRONX NY 10452","https://www.schools.nyc.gov/schools/X294"
-"9","20K310","The School For Future Leaders","BROOKLYN","0K,01,02,03,04,05,SE",40.632143,-74.007533,"942 62ND STREET, BROOKLYN NY 11219","https://www.schools.nyc.gov/schools/K310"
+"","dbn","school_name","Borough","grade_span","Latitude","Longitude","Address","Website","Mean.Score_Common.Core.Algebra","Mean.Score_Common.Core.Algebra2","Mean.Score_Physical.Settings.Chemistry","Scaled.Mean.Score"
+"1","11X509","High School of Language and Innovation","BRONX    ","9 to 12",40.859665,-73.861006,"925 Astor Ave, Bronx, NY 10469","https://www.languageandinnovation.org/",67.8,74.2,72.8,NA
+"2","07X334","International Community High School","BRONX    ","9 to 12",40.81004,-73.917792,"345 Brook Avenue, Bronx, NY 10454","https://www.internationalcommunityhs.org/",79.1,NA,NA,NA
+"3","08X282","Women's Academy of Excellence","BRONX    ","9 to 12",40.814833,-73.85658,"456 White Plains Road, Third Floor, Bronx, NY 10473","https://www.thewae.org/",63,74.5,69.7,NA
+"4","20K223","Montauk (J.H.S. 223)","BROOKLYN","Middle (6-8)",40.634875,-73.981528,"4200 16th Ave, Brooklyn, NY 11204","https://sites.google.com/is223montauk.org/site/",NA,NA,NA,292
+"5","24Q061","Leonardo da Vinci (I.S. 61)","QUEENS","Middle (6-8)",40.742668,-73.863307,"98-50 50th Ave, Corona, NY 11368","http://www.davinci61.com/",NA,NA,NA,666.6666667
+"6","24Q311","Corona Arts and Sciences Academy (CASA)","QUEENS","Middle (6-8)",40.745709,-73.865329,"98-11 44th Ave, Queens, NY 11368","https://www.casa311.org/",NA,NA,NA,243
+"7","30Q145","Joseph Pulitzer (I.S. 145) Magnet School of Innovation and Applied Learning","QUEENS","Middle (6-8)",40.754661,-73.887112,"33-34 80th St, Queens, NY 11372","https://www.145innovators.com/",NA,NA,NA,536.6666667
+"8","09X294","The Walton Avenue School","BRONX","0K,01,02,03,04,05,06,SE",40.8404,-73.915879,"1425 WALTON AVENUE, BRONX NY 10452","https://www.schools.nyc.gov/schools/X294",NA,NA,NA,618.638699438709
+"9","20K310","The School For Future Leaders","BROOKLYN","0K,01,02,03,04,05,SE",40.632143,-74.007533,"942 62ND STREET, BROOKLYN NY 11219","https://www.schools.nyc.gov/schools/K310",NA,NA,NA,617.072728121818
